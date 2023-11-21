@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark px-3" >
+    <div class="navbar-nav" >
+       
+       
+<div class="header">
+  <ul class="nav">
+    <li *ngFor="let item of menu">
+      <a [routerLink]="item.href">{{item.label}}</a>
+      <ul *ngIf="item.children">
+        <li *ngFor="let submenu of item.children">
+          <a [routerLink]="submenu.href">{{submenu.label}}</a>
+          <ul *ngIf="submenu.children">
+            <li *ngFor="let submenu2 of submenu.children">
+              <a [routerLink]="submenu2.href">{{submenu2.label}}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>  <button  class="btn btn-link nav-item nav-link" (click)="logout()" style="margin-top:10px; color: white;">Logout</button></li>
+  </ul>
+
+</div>
+    </div>
+</nav>

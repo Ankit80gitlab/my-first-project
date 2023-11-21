@@ -1,0 +1,58 @@
+{
+  "user": [
+    {
+      "name": "Test",
+      "email": "test@gmail.com",
+      "userid": "KA597962656",
+      "password": "Test@123",
+      "role": "admin",
+      "location": "delhi",
+      "id": 1
+    },
+    {
+      "name": "sunil",
+      "email": "sunil@gmail.com",
+      "userid": "DL981524314",
+      "password": "Sunil@123",
+      "role": "admin",
+      "location": "delhi",
+      "id": 2
+    },
+    {
+      "name": "Ankit",
+      "email": "ankit@gmail.com",
+      "userid": "KA340066302",
+      "password": "Ankit@123",
+      "role": "user",
+      "location": "delhi",
+      "id": 3
+    },
+    {
+      "name": "Jay",
+      "email": "jay@gmail.com",
+      "userid": "DL786012041",
+      "password": "Jay@123",
+      "role": "user",
+      "location": "delhi",
+      "id": 5
+    },
+    {
+      "name": "Thrupthi",
+      "email": "t@gmail.com",
+      "userid": "KA940620143",
+      "password": "T@123",
+      "role": "user",
+      "location": "bangalore",
+      "id": 6
+    },
+    {
+      "name": "ram",
+      "email": "ram@gmail.com",
+      "userid": "MH224486012",
+      "password": "Ram@123",
+      "role": "user",
+      "location": "mumbai",
+      "id": 7
+    }
+  ]
+}

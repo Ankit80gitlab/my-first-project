@@ -1,0 +1,28 @@
+<h2>Parent component : Complaint</h2>
+
+<div>
+    <h3>&nbsp;Send message to add complaint component :
+        <input placeholder="type message" #addMsg> |
+        <button (click)="forAddCalled(addMsg.value)">Send</button>
+    </h3>
+    <h3>&nbsp;Send message to view complaint component :
+        <input placeholder="type message" #viewMsg> |
+        <button (click)="forViewCalled(viewMsg.value)">Send</button>
+    </h3>
+    <h3>Message from child component - add-complaint : {{receivedMsgAdd}}</h3>
+    <h3>Message from child component - view-complaint : {{receivedMsgView}}</h3>
+</div>
+
+<hr>
+
+<div *ngIf="add">
+    <app-complaint-add [data]="messageForAdd" (event)="receiveMessageForAdd($event)"></app-complaint-add>
+</div>
+
+<div *ngIf="view">
+    <app-complaint-view [data]="messageForView" (event)="receiveMessageForView($event)"></app-complaint-view>
+</div>
+
+<div *ngIf="!clicked">
+    <a href="/cctns/complaint">Back</a>
+</div>

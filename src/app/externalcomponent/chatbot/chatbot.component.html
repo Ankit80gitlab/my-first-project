@@ -1,0 +1,50 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>options</mat-label>
+    <input type="text" matTooltip="Search" placeholder="Enter query" matInput [formControl]="myControl"
+      [matAutocomplete]="auto" #memory>
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+
+<img class="chatCallIcon" src="/assets/chaticon.png" (click)="chatBotClicked()">
+<div *ngIf="exist">
+  <div class="container">
+
+    <!-- header -->
+    <div class="chat-header">
+      <div class="logo">
+        <img src="/assets/chatbot.png" alt="" />
+      </div>
+      <div class="title">Let's Chat</div>
+      <div class="cls" style="font-size:larger; font-weight: 500; padding-left: 110px;" (click)="chatBotClicked()">X
+      </div>
+    </div>
+
+    <!-- body -->
+    <!-- [ngClass]="{even: isEven, odd: isOdd}" -->
+    <div class="chat-body">
+      <div class="message" *ngFor="let message of messages; index as i odd as isOdd; even as isEven;"
+        [ngClass]="{'forUser':message.holder==='user','forBot':message.holder==='bot'}">
+        {{message.msg}} || {{message.holder}}
+      </div>
+    </div>
+
+    <!-- input -->
+    <div class="chat-input">
+      <div class="input-sec">
+        <input class="cIn" #reset #msgInp placeholder="ask your question" (keyup.enter)="getBotAnswer(msgInp.value)"
+          type="text">
+      </div>
+      <div class="send">
+        <img src="/assets/send.svg" alt="send" (click)="getBotAnswer(msgInp.value)" />
+      </div>
+    </div>
+  </div>
+</div>
+<!-- [ngClass]="{'from':message.author==='bot','to':message.author==='user'}" -->

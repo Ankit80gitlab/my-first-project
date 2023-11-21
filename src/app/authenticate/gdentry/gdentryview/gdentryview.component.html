@@ -1,0 +1,149 @@
+<form style="height: 100%;">
+    <div>
+        
+        <h3 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;margin-left: 20px;">Search and
+            View General Diary:
+            <hr />
+        </h3>
+
+        <p
+            style="margin-left: 20px;font-family: Impact, Haettenschweiler, ' Narrow Bold', sans-serif;margin-left: 20px;">
+            General Diary : Advance Search </p>
+        <table style="height:100%; margin-left: 20px;">
+            <tr>
+                <td style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">General Diary Number
+                </td>
+                <td><input type="text"></td>
+                <td style="font-family: Impact, Haettenschweiler, ' Narrow Bold', sans-serif;">General Diary Type:</td>
+                <td><select>
+                        <option>----------Select----------</option>
+                        <option>Arrival</option>
+                        <option>Departure</option>
+                        <option>Administrative</option>
+                        <option>Inquiry / Registration</option>
+                        <option>Preventive Action</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">From Date</td>
+                <td><input type="date"></td>
+                <td style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">General Diary
+                    Subtype:</td>
+                <td><select>
+                        <option>----------Select----------</option>
+                        <option></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">To Date</td>
+                <td><input type="date"></td>
+                <td style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">All Type General
+                    Diary:</td>
+                <td><select>
+                        <option>----------Select----------</option>
+                        <option></option>
+                    </select>
+                </td>
+
+            </tr>
+            <tr>
+                <td style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Entry (For Officer)
+                </td>
+                <td><select>
+                        <option>----------Select----------</option>
+
+                    </select></td>
+            </tr>
+            <tr>
+                <td style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Police Station:</td>
+                <td><select>
+                        <option>----------Select----------</option>
+
+                    </select></td>
+            </tr>
+
+        </table>
+
+    </div>
+    <div style="text-align: center;">
+        <button class="btn btn-primary">
+            Search
+        </button>
+
+        <button type="reset" class="btn btn-primary" style="margin-left:20px;">
+            Clear
+        </button>
+    </div>
+    <p style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;margin-left:20px;">Most Recent
+        General Diary Entries</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">General Diary Type</th>
+                <th scope="col">General Diary Subtype</th>
+                <th scope="col">Date/Time</th>
+                <th scope="col">Entry (For Officer)</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Brief General Diary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of general_diary">
+                <th scope="row">{{i.GeneralDiaryType}}</th>
+                <td>{{i.GeneralDiarySubtype}}</td>
+                <td>{{i.Date_Time}}</td>
+                <td>{{i.Subject}}</td>
+                <td>{{i.Subject}}</td>
+                <td>{{i.BriefGeneralDiary}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <!-- <table style="margin-left: 35px;">
+        <tr>
+            <th width="28%">
+                General Diary No.
+            </th>
+            <th width="15%">
+                General Diary Type
+            </th>
+            <th width="15%">
+                Date/Time
+            </th>
+            <th width="15%">
+                Entry (For Officer)
+            </th>
+            <th width="15%">
+                Subject
+            </th>
+            <th width="25%">
+                Brief General Diary
+            </th>
+        </tr>
+        <tr>
+            <td width="15%">
+
+            </td>
+            <td width="15%">
+
+            </td>
+            <td width="15%">
+
+            </td>
+            <td width="15%">
+
+            </td>
+            <td width="15%">
+
+            </td>
+            <td width="25%">
+
+            </td>
+        </tr>
+    </table> -->
+
+
+</form>

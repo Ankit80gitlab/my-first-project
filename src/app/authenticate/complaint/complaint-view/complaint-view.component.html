@@ -1,0 +1,7 @@
+<h2>Child component : view-complaint</h2>
+<h3>message from parent component : {{data}}</h3>
+<h3 *ngIf="show">&nbsp;Send message to parent complaint component :
+    <input placeholder="type message" #msgForParent> |
+    <button (click)="sendMessage(msgForParent.value)">Send</button>
+</h3>
+<hr>

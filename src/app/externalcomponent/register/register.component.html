@@ -1,0 +1,49 @@
+<br>
+<h1 style="text-align: center; font-weight: 300; color: red;">Sign up form</h1>
+<div id="signupForm">
+    <form (ngSubmit)="register()" name="signUpForm" [formGroup]="signUpForm">
+
+        <div class="signUpForm">
+
+            <mat-form-field class="fieldWidth">
+                <mat-label>Enter your name</mat-label>
+                <input matInput formControlName="name">
+                <mat-error *ngIf="signUpForm.get('name')?.errors">Name is required</mat-error>
+            </mat-form-field>
+
+            <br>
+
+            <mat-form-field class="fieldWidth">
+                <mat-label>Enter your email</mat-label>
+                <input matInput formControlName="email">
+                <mat-error *ngIf="signUpForm.get('email')?.errors">Email is required</mat-error>
+            </mat-form-field>
+
+            <br>
+
+            <mat-form-field class="fieldWidth">
+                <mat-label>Password</mat-label>
+                <input type="password" formControlName="password" matInput>
+                <mat-error *ngIf="signUpForm.get('password')?.errors">
+                    Password is required
+                </mat-error>
+            </mat-form-field>
+
+            <br>
+
+            <mat-form-field class="fieldWidth">
+                <mat-label>Location</mat-label>
+                <mat-select formControlName="location">
+                    <mat-option *ngFor="let location of location" [value]="location.value">
+                        {{location.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <br><br>
+
+            <button type="submit" mat-raised-button color="primary" [disabled]="signUpForm.invalid">Sign up</button>
+
+        </div>
+    </form>
+</div>
