@@ -143,6 +143,7 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
+  font-size: small;
 }
 
 .forUser {
@@ -153,4 +154,36 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
+  font-size: small;
 }
+
+.forMsg1B {
+  display: none;
+}
+
+.forMsg2B {
+  display: none;
+}
+
+.forMsg3B {
+  display: none;
+}
+
+.forMsg1NB {
+  font-size: smaller;
+  color: blue;
+}
+
+.forMsg2NB {
+  font-size: smaller;
+  color: blue;
+}
+
+.forMsg3NB {
+  font-size: smaller;
+  color: blue;
+}
+
+.forMsg1NB:hover{ -webkit-transform: scale(1.03); cursor: pointer;}
+.forMsg2NB:hover{ -webkit-transform: scale(1.03); cursor: pointer;}
+.forMsg3NB:hover{ -webkit-transform: scale(1.03); cursor: pointer;}

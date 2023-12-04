@@ -9,6 +9,7 @@ import { DownloadService } from 'src/app/services/download.service';
 import { userData } from 'src/app/models/user';
 import { RegistrationService } from 'src/app/services/registration.service';
 import { ThisReceiver } from '@angular/compiler';
+import { AnimationDriver } from '@angular/animations/browser';
 
 export interface loginMsg {
   name: string;
@@ -34,12 +35,12 @@ export class DashboardComponent {
     private ds: DataService,
     private downServ: DownloadService,
     private regServ: RegistrationService) {
-
   }
 
   ngOnInit() {
     this.openDialogForLogIn();
   }
+  
 
   openDialogForLogIn() {
     if (localStorage.getItem('welcome') === 'true') {
@@ -73,6 +74,6 @@ export class DashboardComponent {
       this.downServ.download(downloadEmpData);
     })
   }
-
+  
 }
 

@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { loginMsg } from 'src/app/authenticate/common/dashboard/dashboard.component';
 
 
@@ -11,9 +11,13 @@ import { loginMsg } from 'src/app/authenticate/common/dashboard/dashboard.compon
 })
 export class LoginDialogBoxComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: loginMsg) { }
+  constructor(private dialogRef: MatDialogRef<LoginDialogBoxComponent>,@Inject(MAT_DIALOG_DATA) public data: loginMsg) { }
 
   ngOnInit() {
+  }
+
+  onOkClick(): void {
+    this.dialogRef.close();
   }
 
 }

@@ -1,1 +1,16 @@
 <p>test works!</p>
+
+<input type="text" #inp placeholder="query">
+<button (click)="sendData(inp.value)">send</button>
+
+<div *ngFor="let data of messagesArray; index as i"
+    [ngClass]="{'forUser':data.holder==='user','forBot':data.holder==='bot'}">
+    <div>{{data.mainMsg}}</div>
+    <li [ngClass]="{'forMsg1B':data.msg1==='','forMsg1NB':data.msg1!=''}" >{{data.msg1}}</li>
+    <li [ngClass]="{'forMsg2B':data.msg2==='','forMsg2NB':data.msg2!=''}">{{data.msg2}}</li>
+    <li [ngClass]="{'forMsg3B':data.msg3==='','forMsg3NB':data.msg3!=''}">{{data.msg3}}</li>
+</div>
+
+
+<!-- *ngFor="let message of messages; index as i odd as isOdd; even as isEven;"
+        [ngClass]="{'forUser':message.holder==='user','forBot':message.holder==='bot'}" -->

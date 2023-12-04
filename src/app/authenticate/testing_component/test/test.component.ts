@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DEFAULT_INTERRUPTSOURCES, Idle } from '@ng-idle/core';
+import { chatData2 } from 'src/app/models/testModel';
 
 @Component({
   selector: 'app-test',
@@ -9,6 +10,38 @@ import { DEFAULT_INTERRUPTSOURCES, Idle } from '@ng-idle/core';
 export class TestComponent {
 
   constructor(private idle: Idle){}
+
+  ngOnInit(){
+    //this.insertingData();
+  }
+
+  messagesArray: chatData2[]=[];
+
+  insertingData() {
+    var msgFromBot = {
+      'holder':'bot',
+      'mainMsg':'this is main message',
+      'msg1':'This is message 1',
+      'msg2':'This is message 2',
+      'msg3':''
+    }
+    this.messagesArray.push(msgFromBot);
+  }
+
+  sendData(data:any){
+    var msgFromUser = {
+      'holder':'user',
+      'mainMsg':data,
+      'msg1':'',
+      'msg2':'',
+      'msg3':''
+    }    
+    this.messagesArray.push(msgFromUser);
+    this.insertingData();
+    console.log(this.messagesArray);
+  }
+
+
 
   idleTime: number = 5;
   urlSetTimeout = ["/cctns/dashboard"];

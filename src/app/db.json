@@ -53,6 +53,15 @@
       "role": "user",
       "location": "mumbai",
       "id": 7
+    },
+    {
+      "name": "ankit",
+      "email": "ankit@gmail.com",
+      "userid": "MH982593105",
+      "password": "Ankit@123",
+      "role": "user",
+      "location": "mumbai",
+      "id": 8
     }
   ]
 }

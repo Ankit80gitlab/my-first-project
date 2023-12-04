@@ -41,6 +41,7 @@ import { ComplaintViewComponent } from './authenticate/complaint/complaint-view/
 import { ChatbotComponent } from './externalcomponent/chatbot/chatbot.component';
 import { MatIconModule } from '@angular/material/icon'
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { RecaptchaModule} from 'ng-recaptcha'
 
 
 @NgModule({
@@ -87,6 +88,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatDialogModule,
     MatIconModule,
     MatAutocompleteModule,
+    RecaptchaModule,
     NgIdleKeepaliveModule.forRoot(),
 
   ],

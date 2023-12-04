@@ -37,23 +37,20 @@ export class AppComponent {
     "/cctns/login"
   ];
 
-  // excludeUrlSetTimeout = [
-  //   "/cctns/login",
-  //   "/cctns/home",
-  //   "/cctns/onlineservices",
-  //   "/cctns/citizeninformation",
-  //   "/cctns/gallery",
-  //   "/cctns/aboutus",
-  //   "/cctns/register",
-  //   "/cctns/gdmain/view"
-  // ];
 
-  
+
+
   url = "";
   routerEvents: any;
 
-  constructor(private idle: Idle, private router: Router, private timeoutServ: TimeoutService, private dialog: MatDialog) {
+  constructor(private idle: Idle,
+    private router: Router,
+    private timeoutServ: TimeoutService,
+    private dialog: MatDialog) {
+    this.sessionManagment();
+  }
 
+  sessionManagment() {
     this.routerEvents = this.router.events.subscribe(
       (event: any) => {
         if (event instanceof NavigationEnd) {
@@ -88,7 +85,7 @@ export class AppComponent {
       if (this.urlListInt.includes(urlPath))
         this.pageType = true;
 
-    } else { // not looged in
+    } else { // not logged in
       if (!this.urlListExt.includes(urlPath))
         this.router.navigateByUrl('cctns/home');
     }

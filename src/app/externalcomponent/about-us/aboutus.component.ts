@@ -1,6 +1,6 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators,AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { AppComponent } from 'src/app/app.component';
 
 @Component({
@@ -8,20 +8,20 @@ import { AppComponent } from 'src/app/app.component';
   templateUrl: './aboutus.component.html',
   styleUrls: ['./aboutus.component.css']
 })
-export class AboutUsComponent  {
+export class AboutUsComponent {
   form!: FormGroup;
   name = 'Angular ';
-  pageType:boolean=true;
-  url:string="";
+  pageType: boolean = true;
+  url: string = "";
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private appcom:AppComponent,  
-){}
+    private appcom: AppComponent,
+  ) { }
 
-ngOnInit() {
-
-     
+  ngOnInit() {
   }
+
+  
 }

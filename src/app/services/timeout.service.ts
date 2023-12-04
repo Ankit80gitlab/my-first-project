@@ -7,6 +7,7 @@ export class TimeoutService {
 
     //routes where idle logout will not be applicable
 
+    // time is in seconds
     idleTime: number = 300;
 
     excludeUrlSetTimeout = [
@@ -17,7 +18,8 @@ export class TimeoutService {
         "/cctns/gallery",
         "/cctns/aboutus",
         "/cctns/register",
-        "/cctns/gdmain/view"
+        "/cctns/gdmain/view",
+        "/cctns/dashboard"
       ];
 
 }

@@ -1,15 +1,3 @@
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <mat-label>options</mat-label>
-    <input type="text" matTooltip="Search" placeholder="Enter query" matInput [formControl]="myControl"
-      [matAutocomplete]="auto" #memory>
-    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-        {{option}}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-</form>
 <!-- //////////////////////////////////////////////////////////////////////////// -->
 
 <img class="chatCallIcon" src="/assets/chaticon.png" (click)="chatBotClicked()">
@@ -26,25 +14,50 @@
       </div>
     </div>
 
+    <!-- previous code -->
     <!-- body -->
     <!-- [ngClass]="{even: isEven, odd: isOdd}" -->
-    <div class="chat-body">
+    <!-- <div class="chat-body">
       <div class="message" *ngFor="let message of messages; index as i odd as isOdd; even as isEven;"
-        [ngClass]="{'forUser':message.holder==='user','forBot':message.holder==='bot'}">
-        {{message.msg}} || {{message.holder}}
+        [ngClass]="{'forUser':message.holder==='user','forBot':message.holder==='bot'}"
+        (click)="getBotAnswer(message.msg)">
+        <a click="check(message.msg)">{{message.msg}}</a>
+      </div>
+    </div>
+    <hr> -->
+
+    <div class="chat-body">
+      <div class="message" *ngFor="let data of messages; index as i"
+        [ngClass]="{'forUser':data.holder==='user','forBot':data.holder==='bot'}">
+        <div>{{data.mainMsg}}</div>
+        <li (click)="getBotAnswer(data.msg1)" [ngClass]="{'forMsg1B':data.msg1==='','forMsg1NB':data.msg1!=''}">{{data.msg1}}</li>
+        <li (click)="getBotAnswer(data.msg2)" [ngClass]="{'forMsg2B':data.msg2==='','forMsg2NB':data.msg2!=''}">{{data.msg2}}</li>
+        <li (click)="getBotAnswer(data.msg3)" [ngClass]="{'forMsg3B':data.msg3==='','forMsg3NB':data.msg3!=''}">{{data.msg3}}</li>
+      </div>
+    </div>
+    <hr>
+
+
+    <!-- previous code -->
+    <!-- <div class="chat-input">
+      <div class="input-sec">
+        <input type="text" class="cIn" #reset #msgInp placeholder="ask your question"
+          (keyup.enter)="findingQuestions(msgInp.value)" type="text">
+      </div>
+      <div class="send">
+        <img src="/assets/send.svg" alt="send" (click)="findingQuestions(msgInp.value)" />
+      </div>
+    </div> -->
+
+    <div class="chat-input">
+      <div class="input-sec">
+        <input type="text" class="cIn" #reset #msgInp placeholder="ask your question"
+          (keyup.enter)="findingQuestions(msgInp.value)" type="text">
+      </div>
+      <div class="send">
+        <img src="/assets/send.svg" alt="send" (click)="findingQuestions(msgInp.value)" />
       </div>
     </div>
 
-    <!-- input -->
-    <div class="chat-input">
-      <div class="input-sec">
-        <input class="cIn" #reset #msgInp placeholder="ask your question" (keyup.enter)="getBotAnswer(msgInp.value)"
-          type="text">
-      </div>
-      <div class="send">
-        <img src="/assets/send.svg" alt="send" (click)="getBotAnswer(msgInp.value)" />
-      </div>
-    </div>
   </div>
 </div>
-<!-- [ngClass]="{'from':message.author==='bot','to':message.author==='user'}" -->

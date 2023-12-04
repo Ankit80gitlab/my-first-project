@@ -12,6 +12,7 @@ export interface loginMsg {
   role: string;
 }
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,13 +22,20 @@ export class LoginComponent {
   title = 'Angular 16 Crud example';
   form!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private menuservice: MenuService, private regServ: RegistrationService,
-    private dialog: MatDialog) { }
+  captcha: string = '';
+  captchaStatus: boolean = false;
 
-  ngOnInit() {
+  constructor(private formBuilder: FormBuilder, private router: Router, private menuservice: MenuService, private regServ: RegistrationService,
+    private dialog: MatDialog) {
+    this.captcha = '';
+    this.captchaStatus = false;
+  }
+
+
+  ngOnInit() {          
     this.form = this.formBuilder.group({
       userid: ['KA340066302', Validators.required],
-      password: ['Ankit@123', Validators.required]
+      password: ['Ankit@123', Validators.required],
     });
   }
 
@@ -38,12 +46,15 @@ export class LoginComponent {
     let isUserAuthorized: boolean;
     let userDataArray: Array<userData> = [];
     this.regServ.fetchAllUser().subscribe(resp => {
+
       for (let i of resp) {
         userDataArray.push(i);
       }
+
       for (let i of userDataArray) {
         if (this.f.userid.value == i.userid && this.f.password.value == i.password) {
           isUserAuthorized = true;
+
           localStorage.setItem('name', i.name);
           localStorage.setItem('role', i.role);
           localStorage.setItem('location', i.location);
@@ -73,25 +84,12 @@ export class LoginComponent {
       },
     });
   }
-  
 
-  // onSubmit1() {
-  //   if (this.f.username.value == 'Test' && this.f.password.value == 'Test@123') {
-  //     sessionStorage.setItem("LoginValue", "True");
-  //     sessionStorage.setItem("role", "user");
-  //     sessionStorage.setItem("userMenu", JSON.stringify(this.menuservice.getMenu()));
-  //     window.location.href = "cctns/dashboard";
-  //   }
-  //   else if (this.f.username.value == 'Admin' && this.f.password.value == 'Test@123') {
-  //     sessionStorage.setItem("LoginValue", "True");
-  //     sessionStorage.setItem("role", "admin");
-  //     sessionStorage.setItem("userMenu", JSON.stringify(this.menuservice.getMenu()));
-  //     window.location.href = "cctns/dashboard";
-  //   }
-  //   else {
-  //     this.router.navigateByUrl('cctns/login');
-  //     this.form.reset();
-  //   }
-  // }
+  captchaResponse(captchaResponse: string) {
+    this.captcha = captchaResponse;
+    console.log('resolved captcha with response ' + this.captcha);
+    this.captchaStatus = true;
+  }
+
 
 }

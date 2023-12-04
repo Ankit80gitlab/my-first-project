@@ -4,6 +4,7 @@ import { chatData } from 'src/app/models/chat';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
+import { chatData2 } from 'src/app/models/testModel';
 
 @Component({
   selector: 'app-chatbot',
@@ -13,28 +14,28 @@ import { startWith, map } from 'rxjs/operators';
 export class ChatbotComponent implements OnInit {
   @ViewChild('reset') reset!: ElementRef;
 
-  messages: chatData[] = [];
-  exist: boolean = true;
-  chatResponseDelay = this.chatService.chatResponseDelay;
+  messages: chatData2[] = [];
+  questionBasedOnKeyword: string[] = [];
+  initialMessages: string[] = [];
+  questionMap = new Map<string, string>();
+  exist: boolean = false;
+  chatResponseDelay: number = 0;
+  question: string = '';
 
   constructor(public chatService: ChatService) {
   }
 
   ngOnInit(): void {
-    this.exist = false;
-    this.messages.push({ 'msg': this.chatService.answeringUser('im1'), 'holder': 'bot' });
-    this.messages.push({ 'msg': this.chatService.answeringUser('im2'), 'holder': 'bot' });
-    this.messages.push({ 'msg': this.chatService.answeringUser('im3'), 'holder': 'bot' });
-
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value || '')),
-    );
-  }
-
-  checkingMethod(){
-    //yet to be implemented
-    //yet to be implemented
+    this.exist = true;
+    this.chatResponseDelay = this.chatService.chatResponseDelay;
+    this.messages.push(
+      {
+        'holder': 'bot',
+        'mainMsg': this.chatService.answeringUser('initMsg1'),
+        'msg1': '', 'msg2': '', 'msg3': ''
+      });
+    this.displayInitialMessages();
+    this.question = '';
   }
 
   chatBotClicked() {
@@ -45,36 +46,155 @@ export class ChatbotComponent implements OnInit {
     }
   }
 
-  getBotAnswer(question: string) {
-    this.reset.nativeElement.value = "";
-    var questionFromUser = {
-      'msg': question,
-      'holder': 'user'
+  savingConversation(data: chatData2) {
+    this.messages.push(data);
+  }
+
+  displayInitialMessages() {
+    this.initialMessages = this.chatService.initialMessages();
+    let initMsgArray: string[] = [];
+    let k: number = 0;
+    for (let i of this.initialMessages) {
+      initMsgArray[k] = i;
+      k++;
     }
-    this.messages.push(questionFromUser);
-    let answer = this.chatService.answeringUser(question);
-    let answerFromBot = {
-      'msg': answer,
-      'holder': 'bot'
+    let initMsgFromBot = {
+      'holder': 'bot',
+      'mainMsg': initMsgArray[0],
+      'msg1': initMsgArray[1],
+      'msg2': initMsgArray[2],
+      'msg3': initMsgArray[3]
     }
     setTimeout(() => {
-      this.messages.push(answerFromBot);
+      this.savingConversation(initMsgFromBot);
     }, this.chatResponseDelay)
   }
 
-  myControl = new FormControl('');
+  findingQuestions(question: any) {
+    // reseting input field
+    this.question = question;
+    this.reset.nativeElement.value = "";
+    if (question === '') {
+      console.log("invalid question");
 
-  filteredOptions: Observable<string[]> | undefined;
+    }
+    else {
+      var questionFromUser = {
+        'holder': 'user',
+        'mainMsg': question,
+        'msg1': '',
+        'msg2': '',
+        'msg3': ''
+      }
+      // saving user question in messages array
+      this.savingConversation(questionFromUser);
 
-  searchData: Array<any> = [];
-  searchResultMessage = "";
-  imageUrlForSearch = "";
-
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.chatService.options.filter(option => option.toLowerCase().includes(filterValue));
+      // calling chat service to find question based on keyword
+      this.questionBasedOnKeyword.length = 0;
+      this.questionBasedOnKeyword = this.chatService.findingQuestions(question);
+      let extractArray: string[] = [];
+      let i: number = 0;
+      for (let v of this.questionBasedOnKeyword) {
+        extractArray[i] = v;
+        i++;
+        console.log(v);
+      }
+      if (extractArray.length == 0) {
+        let answerFromBot = {
+          'holder': 'bot',
+          'mainMsg': 'Something went wrong. Please try again later',
+          'msg1': '',
+          'msg2': '',
+          'msg3': ''
+        }
+        setTimeout(() => {
+          this.savingConversation(answerFromBot);
+        }, this.chatResponseDelay)
+      }
+      else if (extractArray[0].startsWith('Sorry, I can')) {
+        let answerFromBot = {
+          'holder': 'bot',
+          'mainMsg': extractArray[0],
+          'msg1': '',
+          'msg2': '',
+          'msg3': ''
+        }
+        setTimeout(() => {
+          this.savingConversation(answerFromBot);
+        }, this.chatResponseDelay)
+      }
+      else if (extractArray.length == 1) {
+        let answerFromBot = {
+          'holder': 'bot',
+          'mainMsg': extractArray[0],
+          'msg1': extractArray[1],
+          'msg2': '',
+          'msg3': ''
+        }
+        setTimeout(() => {
+          this.savingConversation(answerFromBot);
+        }, this.chatResponseDelay)
+      }
+      else if (extractArray.length == 2) {
+        let answerFromBot = {
+          'holder': 'bot',
+          'mainMsg': extractArray[0],
+          'msg1': extractArray[1],
+          'msg2': '',
+          'msg3': ''
+        }
+        setTimeout(() => {
+          this.savingConversation(answerFromBot);
+        }, this.chatResponseDelay)
+      }
+      else {
+        let answerFromBot = {
+          'holder': 'bot',
+          'mainMsg': extractArray[0],
+          'msg1': extractArray[1],
+          'msg2': extractArray[2],
+          'msg3': extractArray[3]
+        }
+        setTimeout(() => {
+          this.savingConversation(answerFromBot);
+        }, this.chatResponseDelay)
+      }
+    }
   }
 
+  getBotAnswer(question: string) {
+    this.questionMap = this.chatService.questionMap;
+    var available: Boolean = false;
 
+    for (let i of this.questionMap) {
+      if (question == i[1]) {
+        available = true;
+      }
+    }
+    if (available) {
+      console.log("available");
+      var questionFromUser = {
+        'holder': 'user',
+        'mainMsg': question,
+        'msg1': '',
+        'msg2': '',
+        'msg3': ''
+      }
+      this.savingConversation(questionFromUser);
+      let ans: string = this.chatService.answerFromBot(question);
+      let answerFromBot = {
+        'holder': 'bot',
+        'mainMsg': ans,
+        'msg1': '',
+        'msg2': '',
+        'msg3': ''
+      }
+      this.savingConversation(answerFromBot);
+      console.log(ans);
+    }
+    else {
+      console.log("not available");
+    }
+  }
 }
 
