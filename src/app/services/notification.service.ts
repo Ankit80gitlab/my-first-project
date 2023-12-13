@@ -78,12 +78,14 @@ export class NotificationService {
         //console.log(notifyIdOfUser);
         this.getById(notifyIdOfUser).subscribe((resp) => {
           this.notifications = resp.notification;
-          console.log(this.notifications.length);
+          //console.log(this.notifications.length);
           for (let k of this.notifications) {
             updatedNotifyArray.push(k);
           }
           updatedNotifyArray.push(message);
           //console.log(updatedNotifyArray);
+          //console.log(updatedNotifyArray);
+          
           let addNotification = {
             "userId": localStorage.getItem('userId'),
             "notification": updatedNotifyArray,

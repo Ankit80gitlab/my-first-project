@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { userData } from 'src/app/models/user';
+import { GdeditService } from 'src/app/services/gdedit.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { RegistrationService } from 'src/app/services/registration.service';
 
@@ -20,7 +21,8 @@ interface Location {
 
 export class RegisterComponent {
 
-  constructor(private regServ: RegistrationService, private router: Router, private notifyServ: NotificationService) { }
+  constructor(private regServ: RegistrationService, private router: Router, private notifyServ: NotificationService
+    , private gdServ: GdeditService) { }
 
   ngOnInit() {
     this.isUserRegistered = false;
@@ -86,13 +88,17 @@ export class RegisterComponent {
         })
         this.notifyServ.addUser({
           "userId": this.generatedUserId,
-          "notification": [
-            "this is begining",
-          ]
+          "notification": []
         }).subscribe((resp) => {
           console.log(resp);
         })
-
+        this.gdServ.addGdEntry({
+          "userId": this.generatedUserId,
+          "entries": []
+        }).subscribe((resp)=>{
+          console.log(resp);
+          
+        })
       } else {
         alert("Duplicate user id found")
         this.signUpForm.reset();

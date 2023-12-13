@@ -35,6 +35,51 @@
       "role": "user",
       "location": "delhi",
       "id": 5
+    },
+    {
+      "name": "dev",
+      "email": "dev",
+      "userid": "MH692511670",
+      "password": "dev",
+      "role": "user",
+      "location": "mumbai",
+      "id": 6
+    },
+    {
+      "name": "dev2",
+      "email": "dev2",
+      "userid": "DL430878234",
+      "password": "dev2",
+      "role": "user",
+      "location": "delhi",
+      "id": 7
+    },
+    {
+      "name": "shiv",
+      "email": "shiv",
+      "userid": "DL948040104",
+      "password": "shiv",
+      "role": "user",
+      "location": "delhi",
+      "id": 8
+    },
+    {
+      "name": "nick",
+      "email": "nick",
+      "userid": "DL246477531",
+      "password": "nick",
+      "role": "user",
+      "location": "delhi",
+      "id": 9
+    },
+    {
+      "name": "ben",
+      "email": "ben",
+      "userid": "DL745107032",
+      "password": "ben",
+      "role": "user",
+      "location": "delhi",
+      "id": 10
     }
   ]
 }

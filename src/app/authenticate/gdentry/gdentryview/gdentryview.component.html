@@ -75,9 +75,12 @@
             Clear
         </button>
     </div>
-    <p style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;margin-left:20px;">Most Recent
-        General Diary Entries</p>
 
+    <hr>
+    <h3 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;margin-left:20px;">Most Recent
+        General Diary Entries</h3>
+
+        <div style="margin: auto; width: 1300px;"> 
     <table class="table">
         <thead>
             <tr>
@@ -87,63 +90,23 @@
                 <th scope="col">Entry (For Officer)</th>
                 <th scope="col">Subject</th>
                 <th scope="col">Brief General Diary</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let i of general_diary">
+            <tr *ngFor="let i of gdEntries">
                 <th scope="row">{{i.GeneralDiaryType}}</th>
                 <td>{{i.GeneralDiarySubtype}}</td>
                 <td>{{i.Date_Time}}</td>
                 <td>{{i.Subject}}</td>
                 <td>{{i.Subject}}</td>
                 <td>{{i.BriefGeneralDiary}}</td>
+                <td><mat-icon class="icn">edit</mat-icon></td>
+                <td><mat-icon class="icn">delete</mat-icon></td>
             </tr>
         </tbody>
     </table>
-
-
-    <!-- <table style="margin-left: 35px;">
-        <tr>
-            <th width="28%">
-                General Diary No.
-            </th>
-            <th width="15%">
-                General Diary Type
-            </th>
-            <th width="15%">
-                Date/Time
-            </th>
-            <th width="15%">
-                Entry (For Officer)
-            </th>
-            <th width="15%">
-                Subject
-            </th>
-            <th width="25%">
-                Brief General Diary
-            </th>
-        </tr>
-        <tr>
-            <td width="15%">
-
-            </td>
-            <td width="15%">
-
-            </td>
-            <td width="15%">
-
-            </td>
-            <td width="15%">
-
-            </td>
-            <td width="15%">
-
-            </td>
-            <td width="25%">
-
-            </td>
-        </tr>
-    </table> -->
-
+</div>
 
 </form>

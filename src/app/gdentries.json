@@ -1,0 +1,131 @@
+{
+  "gdentries": [
+    {
+      "userId": "KA340066302",
+      "entries": [
+        {
+          "Date_Time": "13/12/2023, 4:52",
+          "Select": "one",
+          "GeneralDiaryType": "Departure",
+          "GeneralDiarySubtype": "Inquiry / Registration",
+          "Entry(For Officer)": "option 2",
+          "Subject": "transfer",
+          "BriefGeneralDiary": "employee requested transfer"
+        },
+        {
+          "Date_Time": "13/12/2023, 4:53",
+          "Select": "one",
+          "GeneralDiaryType": "Preventive Action",
+          "GeneralDiarySubtype": "Administrative",
+          "Entry(For Officer)": "option 1",
+          "Subject": "this is subject",
+          "BriefGeneralDiary": "this is summary"
+        },
+        {
+          "Date_Time": "13/12/2023, 4:54",
+          "Select": "one",
+          "GeneralDiaryType": "Departure",
+          "GeneralDiarySubtype": "Inquiry / Registration",
+          "Entry(For Officer)": "option 2",
+          "Subject": "FIR",
+          "BriefGeneralDiary": "Reported"
+        },
+        {
+          "Date_Time": "13/12/2023, 5:00",
+          "Select": "one",
+          "GeneralDiaryType": "Administrative",
+          "GeneralDiarySubtype": "Departure",
+          "Entry(For Officer)": "option 2",
+          "Subject": "adding subject",
+          "BriefGeneralDiary": "adding summary"
+        },
+        {
+          "Date_Time": "13/12/2023, 5:50",
+          "Select": "one",
+          "GeneralDiaryType": "Departure",
+          "GeneralDiarySubtype": "Preventive Action",
+          "Entry(For Officer)": "option 2",
+          "Subject": "subject 2",
+          "BriefGeneralDiary": "summary 2"
+        },
+        {
+          "Date_Time": "13/12/2023, 5:52",
+          "Select": "one",
+          "GeneralDiaryType": "----------Select----------",
+          "GeneralDiarySubtype": "----------Select----------",
+          "Entry(For Officer)": "----------Select----------",
+          "Subject": "",
+          "BriefGeneralDiary": ""
+        }
+      ],
+      "id": 2
+    },
+    {
+      "userId": "KA340066305",
+      "entries": [
+        {
+          "Date_Time": "13/12/2023, 4:54",
+          "Select": "one",
+          "GeneralDiaryType": "Departure",
+          "GeneralDiarySubtype": "Inquiry / Registration",
+          "Entry(For Officer)": "option 2",
+          "Subject": "FIR",
+          "BriefGeneralDiary": "Reported"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "userId": "KA342305",
+      "entries": [],
+      "id": 4
+    },
+    {
+      "userId": "this.generatedUserId",
+      "entries": [],
+      "id": 5
+    },
+    {
+      "userId": "DL745107032",
+      "entries": [
+        {
+          "Date_Time": "13/12/2023, 3:49",
+          "Select": "one",
+          "GeneralDiaryType": "Administrative",
+          "GeneralDiarySubtype": "Departure",
+          "Entry(For Officer)": "----------Select----------",
+          "Subject": "this is subject",
+          "BriefGeneralDiary": "summary"
+        },
+        {
+          "Date_Time": "13/12/2023, 3:50",
+          "Select": "one",
+          "GeneralDiaryType": "Administrative",
+          "GeneralDiarySubtype": "Departure",
+          "Entry(For Officer)": "option 3",
+          "Subject": "Traffic",
+          "BriefGeneralDiary": "Sorted"
+        },
+        {
+          "Date_Time": "13/12/2023, 3:52",
+          "Select": "one",
+          "GeneralDiaryType": "Departure",
+          "GeneralDiarySubtype": "Inquiry / Registration",
+          "Entry(For Officer)": "----------Select----------",
+          "Subject": "no subject",
+          "BriefGeneralDiary": "no summary"
+        },
+        {
+          "Date_Time": "13/12/2023, 4:54",
+          "Select": "one",
+          "GeneralDiaryType": "Departure",
+          "GeneralDiarySubtype": "Inquiry / Registration",
+          "Entry(For Officer)": "option 2",
+          "Subject": "FIR",
+          "BriefGeneralDiary": "Reported"
+        }
+      ],
+      "id": 6
+    }
+  ]
+}

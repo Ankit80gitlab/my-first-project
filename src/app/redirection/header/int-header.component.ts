@@ -7,12 +7,13 @@ import { gdAddNotify } from 'src/app/models/gdNotification';
 import { Observable, ReplaySubject, Subject, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NotificationService } from 'src/app/services/notification.service';
+import { MatDialog } from '@angular/material/dialog';
+import { NotificationDialogBoxComponent } from 'src/app/dialogbox/notification-dialog-box/notification-dialog-box.component';
 // import 'rxjs/add/operator/takeUntil';
 
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
+
+export interface notify {
+  "msg": any
 }
 
 @Component({
@@ -25,16 +26,11 @@ export class IntHeaderComponent {
   form!: FormGroup;
 
   @Input() data: string = "";
-
-  componentDestroy$: Subject<Boolean> = new Subject();
-  //private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
-
   userId: any = "";
   name: any = "";
   role: any = "";
   location: any = "";
   visible = false;
-
   general_diary: string = "";
   routerEvents: any;
 
@@ -44,7 +40,8 @@ export class IntHeaderComponent {
     private router: Router,
     private sharedServ: SharedService,
     private httpClient: HttpClient,
-    private notifyServ: NotificationService
+    private notifyServ: NotificationService,
+    private dialog: MatDialog
   ) { }
 
 
@@ -54,21 +51,22 @@ export class IntHeaderComponent {
     this.location = localStorage.getItem('location');
     this.userId = localStorage.getItem('userId');
 
-    // this.sharedServ.getMessage().takeUntil(this.componentDestroy$).subscribe((data: any) =>{
-    //   this.showinfo(data);
-    // }) 
-    // this.sharedServ.getMessage().pipe(takeUntil(this.destroyed$));
-    //this.changes();
-
     this.routerEvents = this.router.events.subscribe(
       (event: any) => {
         this.getAllNotification();
       })
   }
 
+  value = ""
+
+  ch(data2: any) {
+    console.log(data2);
+
+  }
+
 
   notifications: any[] = [];
-  notificationLength:number=0;
+  notificationLength: number = 0;
 
   getAllNotification() {
     let notifyIdOfUser = 0;
@@ -84,7 +82,7 @@ export class IntHeaderComponent {
         //console.log(notifyIdOfUser);
         this.notifyServ.getById(notifyIdOfUser).subscribe((resp) => {
           this.notifications = resp.notification;
-          this.notificationLength=this.notifications.length;
+          this.notificationLength = this.notifications.length;
           //console.log(this.notifications);
         })
       } else {
@@ -92,6 +90,24 @@ export class IntHeaderComponent {
       }
     });
   }
+
+  openDialogForNotification(message: any): void {
+    let msgId = 0;
+    const dialogRef = this.dialog.open(NotificationDialogBoxComponent, {
+      data: {
+        "msg": message
+      },
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log("clicked");
+        
+      } else {
+        console.log("denied");
+      }
+    });
+  }
+
 }
 
 

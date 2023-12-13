@@ -46,6 +46,7 @@ import { NgComponentComponent } from './authenticate/ng-component/ng-component/n
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatMenuModule} from '@angular/material/menu';
+import { NotificationDialogBoxComponent } from './dialogbox/notification-dialog-box/notification-dialog-box.component';
 
 
 
@@ -79,6 +80,7 @@ import {MatMenuModule} from '@angular/material/menu';
     ComplaintViewComponent,
     ChatbotComponent,
     NgComponentComponent,
+    NotificationDialogBoxComponent,
 
   ],
   imports: [
