@@ -55,6 +55,7 @@ export class LoginComponent {
         if (this.f.userid.value == i.userid && this.f.password.value == i.password) {
           isUserAuthorized = true;
 
+          localStorage.setItem('userId', i.userid);
           localStorage.setItem('name', i.name);
           localStorage.setItem('role', i.role);
           localStorage.setItem('location', i.location);
@@ -65,7 +66,7 @@ export class LoginComponent {
       if (isUserAuthorized) {
         sessionStorage.setItem("LoginValue", "True");
         sessionStorage.setItem("userMenu", JSON.stringify(this.menuservice.getMenu()));
-        window.location.href = "cctns/dashboard";
+        window.location.href = "cctns/gdmain/add";
         //this.openDialogForLogIn();
       }
       else {

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { userData } from 'src/app/models/user';
+import { NotificationService } from 'src/app/services/notification.service';
 import { RegistrationService } from 'src/app/services/registration.service';
 
 
@@ -19,10 +20,10 @@ interface Location {
 
 export class RegisterComponent {
 
-  constructor(private regServ:RegistrationService, private router:Router){}
+  constructor(private regServ: RegistrationService, private router: Router, private notifyServ: NotificationService) { }
 
-  ngOnInit(){
-    this.isUserRegistered=false;
+  ngOnInit() {
+    this.isUserRegistered = false;
   }
 
   location: Location[] = [
@@ -39,7 +40,7 @@ export class RegisterComponent {
   })
 
   generatedUserId: any;
-  isUserRegistered:boolean=false;
+  isUserRegistered: boolean = false;
 
   register() {
     let prefix = "";
@@ -79,10 +80,19 @@ export class RegisterComponent {
           "location": this.signUpForm.getRawValue().location
         }).subscribe(resp => {
           console.log(resp);
-          this.isUserRegistered=true;
-          alert("You have successfully registered with user id "+this.generatedUserId);
+          this.isUserRegistered = true;
+          alert("You have successfully registered with user id " + this.generatedUserId);
           this.router.navigateByUrl("cctns/login");
         })
+        this.notifyServ.addUser({
+          "userId": this.generatedUserId,
+          "notification": [
+            "this is begining",
+          ]
+        }).subscribe((resp) => {
+          console.log(resp);
+        })
+
       } else {
         alert("Duplicate user id found")
         this.signUpForm.reset();

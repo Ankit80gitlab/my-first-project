@@ -1,4 +1,76 @@
-<div style="text-align: center;background-color: white;height:100px;">		
+<!-- <div style="text-align: center;background-color:white; height:100px;">
     <img src="/assets/tes.png" alt="image" style="height: 80px; width:100%;">
-</div>
+</div> -->
+
+
+
+<mat-grid-list cols="5" rowHeight="2:1">
+
+    <mat-grid-tile colspan="1" rowspan="1">
+        <img src="/assets/logo1.png" style="width: 280px; height: 90px; padding: 8px;">
+    </mat-grid-tile>
+
+
+
+    <mat-grid-tile colspan="3" rowspan="1">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-2" style="border: 1px solid white;">
+                    <div class="circle">
+                        <img style="border-radius: 50%; height: 45px;" src="assets/M2.jpg">
+                    </div>
+                </div>
+
+                <div class="col-7" style="border: 1px solid white;">
+                    <div class="container">
+                        <div class="row" style="margin-top: 20px; margin-left: -25px;">
+                            <div class="col" style="border: 1px solid white;">
+                                <b class="info">Name : </b> {{name|uppercase}} <br>
+                                <br>
+                                <b class="info">User ID: </b> {{userId | uppercase}} <br>
+                            </div>
+                            <div class="col" style="border: 1px solid white;">
+                                <b class="info">Role : </b> {{role | uppercase}} <br>
+                                <br>
+                                <b class="info">Location : </b> {{location | uppercase}} <br>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-3" style="border: 1px solid white;">
+                    <mat-icon style="margin-top: 25px; margin-left: 15px;">home</mat-icon>
+                    <mat-icon style="margin-top: 25px; margin-left: 15px;">person</mat-icon>
+                    <mat-icon style="margin-top: 25px; margin-left: 15px;">feedback</mat-icon>
+                    <mat-icon style="margin-top: 25px; margin-left: 15px;" matBadge="{{notificationLength}}"
+                        matBadgeColor="warn" [matBadgeHidden]="visible" [matMenuTriggerFor]="menu">mail</mat-icon>
+                    <mat-menu #menu="matMenu" aria-hidden="true">
+                        <div style="width:280px; height:150px; overflow:auto;">
+                            <table cellspacing="0" cellpadding="1" width="250">
+                                <button mat-menu-item *ngFor="let i of notifications">
+                                    <mat-icon>library_add</mat-icon>
+                                    <small> {{i}}</small>
+                                </button>
+                            </table>
+                        </div>
+                    </mat-menu>
+                </div>
+            </div>
+        </div>
+
+    </mat-grid-tile>
+
+
+    <mat-grid-tile colspan="1" rowspan="1">
+        <img src="/assets/logo2.png" style="height: 90px; padding: 5px;">
+    </mat-grid-tile>
+
+</mat-grid-list>
+
+<!-- <h3>message from parent component : {{data}} </h3> -->
+
 <app-nav></app-nav>

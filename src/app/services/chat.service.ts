@@ -109,6 +109,12 @@ export class ChatService {
 
     ['Their requirement without linking it to their wages and contributions',
       'Whether Regional Office ESIC Bangalore is providing Aadhaar seeding facility to Staffs and Pensioners?'],
+
+    ['Cash compensation upto Ninety (90) days, once in a lifetime.',
+      'What is the duration of ABVKY?',],
+
+    ['Per day Rate of relief under ÁBVKY is 50% of average earning per day.',
+      'What is the quantum of ABVKY?'],
   ]);
 
 
@@ -117,9 +123,6 @@ export class ChatService {
     'What provisions of Pension & Gratuity applicable in ESIC?',
     'Whether Regional Office ESIC Bangalore is providing Aadhaar seeding facility to Staffs and Pensioners?'
   ];
-
-
-
 
 
   options: string[] = [
@@ -157,7 +160,6 @@ export class ChatService {
   answeringUser(question: any) {
     return (this.messageMap[question] || this.messageMap['default']);
   }
-
 
 }
 

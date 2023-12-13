@@ -17,6 +17,7 @@ import { GdMainComponent } from './authenticate/gdentry/gd-main/gd-main.componen
 import { ComplaintMainComponent } from './authenticate/complaint/complaint-main/complaint-main.component';
 import { ChatbotComponent } from './externalcomponent/chatbot/chatbot.component';
 import { TestComponent } from './authenticate/testing_component/test/test.component';
+import { NgComponentComponent } from './authenticate/ng-component/ng-component/ng-component.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'cctns/home', pathMatch: 'full' },
@@ -37,7 +38,8 @@ const routes: Routes = [
   { path:'cctns/gallery',component:GalleryComponent} ,
   { path:'cctns/contactus',component:ContactUsComponent} , 
   { path:'cctns/chatbot',component:ChatbotComponent},
-  { path:'cctns/test',component:TestComponent}
+  { path:'cctns/test',component:TestComponent},
+  { path:'cctns/ngc',component:NgComponentComponent}
 ];
 
 @NgModule({

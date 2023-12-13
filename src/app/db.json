@@ -10,15 +10,6 @@
       "id": 1
     },
     {
-      "name": "sunil",
-      "email": "sunil@gmail.com",
-      "userid": "DL981524314",
-      "password": "Sunil@123",
-      "role": "admin",
-      "location": "delhi",
-      "id": 2
-    },
-    {
       "name": "Ankit",
       "email": "ankit@gmail.com",
       "userid": "KA340066302",
@@ -28,40 +19,22 @@
       "id": 3
     },
     {
-      "name": "Jay",
-      "email": "jay@gmail.com",
-      "userid": "DL786012041",
-      "password": "Jay@123",
+      "name": "NewUser",
+      "email": "new@gmail.com",
+      "userid": "DL541193208",
+      "password": "New@123q",
       "role": "user",
       "location": "delhi",
-      "id": 5
+      "id": 4
     },
     {
       "name": "Thrupthi",
-      "email": "t@gmail.com",
-      "userid": "KA940620143",
-      "password": "T@123",
+      "email": "hgjhtfgh@gmail.com",
+      "userid": "KA565753569",
+      "password": "fhjfhg",
       "role": "user",
-      "location": "bangalore",
-      "id": 6
-    },
-    {
-      "name": "ram",
-      "email": "ram@gmail.com",
-      "userid": "MH224486012",
-      "password": "Ram@123",
-      "role": "user",
-      "location": "mumbai",
-      "id": 7
-    },
-    {
-      "name": "ankit",
-      "email": "ankit@gmail.com",
-      "userid": "MH982593105",
-      "password": "Ankit@123",
-      "role": "user",
-      "location": "mumbai",
-      "id": 8
+      "location": "delhi",
+      "id": 5
     }
   ]
 }

@@ -41,7 +41,13 @@ import { ComplaintViewComponent } from './authenticate/complaint/complaint-view/
 import { ChatbotComponent } from './externalcomponent/chatbot/chatbot.component';
 import { MatIconModule } from '@angular/material/icon'
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { RecaptchaModule} from 'ng-recaptcha'
+import { RecaptchaModule} from 'ng-recaptcha';
+import { NgComponentComponent } from './authenticate/ng-component/ng-component/ng-component.component'
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatMenuModule} from '@angular/material/menu';
+
+
 
 
 @NgModule({
@@ -72,6 +78,7 @@ import { RecaptchaModule} from 'ng-recaptcha'
     ComplaintAddComponent,
     ComplaintViewComponent,
     ChatbotComponent,
+    NgComponentComponent,
 
   ],
   imports: [
@@ -89,6 +96,9 @@ import { RecaptchaModule} from 'ng-recaptcha'
     MatIconModule,
     MatAutocompleteModule,
     RecaptchaModule,
+    MatBadgeModule,
+    MatGridListModule,
+    MatMenuModule,
     NgIdleKeepaliveModule.forRoot(),
 
   ],

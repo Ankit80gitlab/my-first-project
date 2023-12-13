@@ -20,13 +20,13 @@ export class ChatbotComponent implements OnInit {
   questionMap = new Map<string, string>();
   exist: boolean = false;
   chatResponseDelay: number = 0;
-  question: string = '';
+  userQuestion: string = '';
 
   constructor(public chatService: ChatService) {
   }
 
   ngOnInit(): void {
-    this.exist = true;
+    this.exist = false;
     this.chatResponseDelay = this.chatService.chatResponseDelay;
     this.messages.push(
       {
@@ -35,7 +35,7 @@ export class ChatbotComponent implements OnInit {
         'msg1': '', 'msg2': '', 'msg3': ''
       });
     this.displayInitialMessages();
-    this.question = '';
+    this.userQuestion = '';
   }
 
   chatBotClicked() {
@@ -72,7 +72,7 @@ export class ChatbotComponent implements OnInit {
 
   findingQuestions(question: any) {
     // reseting input field
-    this.question = question;
+    this.userQuestion = question;
     this.reset.nativeElement.value = "";
     if (question === '') {
       console.log("invalid question");
@@ -191,9 +191,89 @@ export class ChatbotComponent implements OnInit {
       }
       this.savingConversation(answerFromBot);
       console.log(ans);
+      this.relevantQuestions(this.userQuestion);
     }
     else {
       console.log("not available");
+    }
+  }
+
+  relevantQuestions(question: any) {
+    let mainMsg = "related queries : "
+    if (question === '') {
+      console.log("question not typed yet");
+    }
+    else {
+      // calling chat service to find question based on keyword
+      this.questionBasedOnKeyword.length = 0;
+      this.questionBasedOnKeyword = this.chatService.findingQuestions(question);
+      let extractArray: string[] = [];
+      let i: number = 0;
+      for (let v of this.questionBasedOnKeyword) {
+        extractArray[i] = v;
+        i++;
+        console.log(v);
+      }
+      if (extractArray.length == 0) {
+        let answerFromBot = {
+          'holder': 'bot',
+          'mainMsg': 'Something went wrong. Please try again later',
+          'msg1': '',
+          'msg2': '',
+          'msg3': ''
+        }
+        setTimeout(() => {
+          this.savingConversation(answerFromBot);
+        }, this.chatResponseDelay)
+      }
+      else if (extractArray[0].startsWith('Sorry, I can')) {
+        let answerFromBot = {
+          'holder': 'bot',
+          'mainMsg': extractArray[0],
+          'msg1': '',
+          'msg2': '',
+          'msg3': ''
+        }
+        setTimeout(() => {
+          this.savingConversation(answerFromBot);
+        }, this.chatResponseDelay)
+      }
+      else if (extractArray.length == 1) {
+        let answerFromBot = {
+          'holder': 'bot',
+          'mainMsg': mainMsg,
+          'msg1': extractArray[1],
+          'msg2': '',
+          'msg3': ''
+        }
+        setTimeout(() => {
+          this.savingConversation(answerFromBot);
+        }, this.chatResponseDelay)
+      }
+      else if (extractArray.length == 2) {
+        let answerFromBot = {
+          'holder': 'bot',
+          'mainMsg': mainMsg,
+          'msg1': extractArray[1],
+          'msg2': '',
+          'msg3': ''
+        }
+        setTimeout(() => {
+          this.savingConversation(answerFromBot);
+        }, this.chatResponseDelay)
+      }
+      else {
+        let answerFromBot = {
+          'holder': 'bot',
+          'mainMsg': mainMsg,
+          'msg1': extractArray[1],
+          'msg2': extractArray[2],
+          'msg3': extractArray[3]
+        }
+        setTimeout(() => {
+          this.savingConversation(answerFromBot);
+        }, this.chatResponseDelay)
+      }
     }
   }
 }

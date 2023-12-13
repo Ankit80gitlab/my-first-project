@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd, NavigationStart } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { elementAt, first } from 'rxjs/operators';
@@ -6,6 +6,9 @@ import { TimeoutService } from './services/timeout.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DEFAULT_INTERRUPTSOURCES, Idle } from '@ng-idle/core';
 import { IdleLogoutDialogComponent } from './dialogbox/idle-logout-dialog/idle-logout-dialog.component';
+import { IntHeaderComponent } from './redirection/header/int-header.component';
+import { NotificationService } from './services/notification.service';
+import { gdAddNotify } from './models/gdNotification';
 
 export interface idleLogout {
   name: string;
@@ -15,9 +18,14 @@ export interface idleLogout {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+
+
+
+
+
   title1 = 'Angular 16 Crud example';
   pageType = false;
   login = false;
@@ -37,17 +45,16 @@ export class AppComponent {
     "/cctns/login"
   ];
 
-
-
-
   url = "";
   routerEvents: any;
 
   constructor(private idle: Idle,
     private router: Router,
     private timeoutServ: TimeoutService,
-    private dialog: MatDialog) {
+    private dialog: MatDialog,
+    private notifyServ: NotificationService) {
     this.sessionManagment();
+
   }
 
   sessionManagment() {
@@ -55,6 +62,7 @@ export class AppComponent {
       (event: any) => {
         if (event instanceof NavigationEnd) {
           console.log("url changed " + event.url);
+          this.check();
           if (!this.timeoutServ.excludeUrlSetTimeout.includes(event.url)) {
             console.log("assigned path for idle logout : called");
             this.idle.setIdle(this.timeoutServ.idleTime);
@@ -89,6 +97,8 @@ export class AppComponent {
       if (!this.urlListExt.includes(urlPath))
         this.router.navigateByUrl('cctns/home');
     }
+
+
   }
 
   openDialogForIdleLogout() {
@@ -99,6 +109,15 @@ export class AppComponent {
       },
     });
   }
+
+  messageForIntHead:string="";
+  notifications: gdAddNotify[] = [];
+
+  check() {
+    this.messageForIntHead="this is from parent";
+    
+  }
+
 
 }
 

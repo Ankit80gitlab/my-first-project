@@ -1,58 +1,9 @@
-.forBot {
-    align-self: flex-start;
-    background-color: rgb(92, 219, 92);
-    border-radius: 0px 10px 10px 10px;
-    width: 250px;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
-    font-size: small;
+.isOdd{
+    color: blue;
+
 }
 
-.forUser {
-    align-self: flex-end;
-    background-color: #0652c0;
-    border-radius: 10px 10px 0px 10px;
-    width: 250px;
-    overflow-wrap:break-word;
-    word-wrap: break-word;
-    word-break: break-word;
-    font-size: small;
-    color: white;
-}
+.isEven{
+    color: green;
 
-.msg2NotBlank {
-    border: 1px solid green;
-    border-radius: 10px;
 }
-
-.ifLink {
-    background: none !important;
-    border: none;
-    padding: 0 !important;
-    /*optional*/
-    font-family: arial, sans-serif;
-    /*input has OS specific font-family*/
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.forMsg1B{
-    display: none;
-}
-.forMsg2B{
-    display: none;
-}
-.forMsg3B{
-    display: none;
-}
-.forMsg1NB{
-    font-size: smaller;
-}
-.forMsg2NB{
-    font-size: smaller;
-}
-.forMsg3NB{
-    font-size: smaller;
-}
-

@@ -1,16 +1,48 @@
-<p>test works!</p>
+<div style="margin-left: 50px;"><br>
 
-<input type="text" #inp placeholder="query">
-<button (click)="sendData(inp.value)">send</button>
+  
+    <!-- /////////////////////////////////////////////////// -->
+    <h2>Angular NgPlural</h2>
+    <div>
+        <input style="width: 200px; height: 30px;" [(ngModel)]="items" placeholder="Enter a number of items" />
+    </div>
+    <br>
+    <div [ngPlural]="items">
+        <ng-template ngPluralCase="=0">Your cart is empty!</ng-template>
+        <ng-template ngPluralCase="=1">Only 1 item</ng-template>
+        <ng-template ngPluralCase="=100">Woohoo!!! 100 items in the cart!</ng-template>
+        <ng-template ngPluralCase="other">{{ items }}</ng-template>
+    </div>
 
-<div *ngFor="let data of messagesArray; index as i"
-    [ngClass]="{'forUser':data.holder==='user','forBot':data.holder==='bot'}">
-    <div>{{data.mainMsg}}</div>
-    <li [ngClass]="{'forMsg1B':data.msg1==='','forMsg1NB':data.msg1!=''}" >{{data.msg1}}</li>
-    <li [ngClass]="{'forMsg2B':data.msg2==='','forMsg2NB':data.msg2!=''}">{{data.msg2}}</li>
-    <li [ngClass]="{'forMsg3B':data.msg3==='','forMsg3NB':data.msg3!=''}">{{data.msg3}}</li>
+    <hr>
+
+    <!-- /////////////////////////////////////////////////// -->
+    <h2>Angular Keyvalue Pipe</h2>
+    <ng-container *ngFor="let title of data | keyvalue; let index = index">
+        <div [ngClass]="{'isOdd': 0 != index % 2,'isEven': 0 === index % 2}">
+            {{title.key}} &nbsp;: &nbsp; {{title.value}} <mat-icon (click)="edit(title.value)">edit</mat-icon></div>
+        <input *ngIf="editClicked" type="text" value={{title.value}}>
+        <button class="btn btn-warning" *ngIf="editClicked" (click)="editComplete()">Save</button>
+    </ng-container>
+
+    <hr>
+
+    <button class="btn btn-primary" (click)="loadCourses()">LoadCourses</button>
+
+    <div *ngFor="let course of courses;">
+        {{course.name}}</div>
+
+
+    <!-- \\\\\\\\\\\\\\\\\\\\\\ -->
+
+    <div *ngFor="let i of songs">
+        
+        <button (click)="playAudio()">Play</button>
+        <button (click)="stopAudio()">stop</button>
+    </div>
+
+
+
+
+
 </div>
-
-
-<!-- *ngFor="let message of messages; index as i odd as isOdd; even as isEven;"
-        [ngClass]="{'forUser':message.holder==='user','forBot':message.holder==='bot'}" -->
