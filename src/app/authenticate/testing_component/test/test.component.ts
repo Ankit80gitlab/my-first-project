@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { DEFAULT_INTERRUPTSOURCES, Idle } from '@ng-idle/core';
 import { chatData2 } from 'src/app/models/testModel';
 
@@ -9,7 +10,36 @@ import { chatData2 } from 'src/app/models/testModel';
 })
 export class TestComponent {
 
-  constructor(private idle: Idle) { }
+  constructor(private idle: Idle, private httpClient: HttpClient) {
+
+    let promise = new Promise((resolve, reject) => {
+      // setTimeout(() => {
+        let count = 5
+        if (count == 9) {
+          resolve(this.playAudio());
+          this.result=true;
+          return true;
+        } else {
+          reject(new Error("Ooops something went wrong")) ;
+          this.result=false;
+          return false;
+      }
+      // }, 0)
+    })
+
+    promise
+      .then((result) => {
+        console.log(result)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+      .finally(() => {
+        console.log("Everything is finalized")
+      })
+  }
+
+  result:any="checking...."
 
   items = 0;
   editClicked = false;
@@ -17,11 +47,12 @@ export class TestComponent {
 
   audio = new Audio();
 
-  playAudio(): void {
-    //console.log(fileUrl)
-    this.audio.src = "https://www.w3schools.com/jsref/horse.ogg";
-    this.audio.load();
-    this.audio.play();
+  playAudio() {
+    console.log("method called");
+    return true;
+    // this.audio.src = "https://www.w3schools.com/jsref/horse.ogg";
+    // this.audio.load();
+    // this.audio.play();
   }
 
   stopAudio() {
@@ -81,6 +112,12 @@ export class TestComponent {
     { id: 4, name: 'song4', fileUrl: '' },
     { id: 5, name: 'song5', fileUrl: '' },
   ]
+
+  @ViewChild('reset') reset!: ElementRef;
+  @ViewChild('reset2') reset2!: ElementRef;
+
+
+
 
 
 }

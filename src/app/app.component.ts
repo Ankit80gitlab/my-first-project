@@ -38,7 +38,8 @@ export class AppComponent {
   urlListInt = [
     "/cctns/dashboard",
     "/cctns/gdmain/add",
-    "/cctns/gdmain/view"
+    "/cctns/gdmain/view",
+    "/cctns/gdmain/edit"
   ];
 
   urlListExt = [

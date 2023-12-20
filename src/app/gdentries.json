@@ -4,58 +4,124 @@
       "userId": "KA340066302",
       "entries": [
         {
-          "Date_Time": "13/12/2023, 4:52",
+          "GdId": "GD15586",
+          "Date_Time": "19/12/2023, 4:27",
           "Select": "one",
           "GeneralDiaryType": "Departure",
-          "GeneralDiarySubtype": "Inquiry / Registration",
-          "Entry(For Officer)": "option 2",
-          "Subject": "transfer",
-          "BriefGeneralDiary": "employee requested transfer"
+          "GeneralDiarySubtype": "Administrative",
+          "Entry": "option 2",
+          "Subject": "awdaas",
+          "BriefGeneralDiary": ""
         },
         {
-          "Date_Time": "13/12/2023, 4:53",
+          "GdId": "GD83378",
+          "Date_Time": "20/12/2023, 11:23",
           "Select": "one",
-          "GeneralDiaryType": "Preventive Action",
-          "GeneralDiarySubtype": "Administrative",
-          "Entry(For Officer)": "option 1",
+          "GeneralDiaryType": "Departure",
+          "GeneralDiarySubtype": "Preventive Action",
+          "Entry": "option 3",
+          "Subject": "this is subject",
+          "BriefGeneralDiary": ""
+        },
+        {
+          "GdId": "GD51375",
+          "Date_Time": "20/12/2023, 11:30",
+          "Select": "one",
+          "GeneralDiaryType": "Administrative",
+          "GeneralDiarySubtype": "Inquiry / Registration",
+          "Entry": "option 3",
           "Subject": "this is subject",
           "BriefGeneralDiary": "this is summary"
         },
         {
-          "Date_Time": "13/12/2023, 4:54",
+          "GdId": "GD72433",
+          "Date_Time": "19/12/2023, 3:57",
           "Select": "one",
           "GeneralDiaryType": "Departure",
-          "GeneralDiarySubtype": "Inquiry / Registration",
-          "Entry(For Officer)": "option 2",
-          "Subject": "FIR",
-          "BriefGeneralDiary": "Reported"
+          "GeneralDiarySubtype": "Departure",
+          "Entry": "option 2",
+          "Subject": "adding gd id",
+          "BriefGeneralDiary": "adding gd id"
         },
         {
-          "Date_Time": "13/12/2023, 5:00",
+          "GdId": "GD46703",
+          "Date_Time": "19/12/2023, 5:30",
+          "Select": "one",
+          "GeneralDiaryType": "Arrival",
+          "GeneralDiarySubtype": "Arrival",
+          "Entry": "option 3",
+          "Subject": "Acer",
+          "BriefGeneralDiary": "sfsfsg"
+        },
+        {
+          "GdId": "GD19807",
+          "Date_Time": "19/12/2023, 4:17",
+          "Select": "one",
+          "GeneralDiaryType": "Administrative",
+          "GeneralDiarySubtype": "Preventive Action",
+          "Entry": "option 2",
+          "Subject": "wewewewew",
+          "BriefGeneralDiary": "this is summarry"
+        },
+        {
+          "GdId": "GD30127",
+          "Date_Time": "19/12/2023, 5:28",
           "Select": "one",
           "GeneralDiaryType": "Administrative",
           "GeneralDiarySubtype": "Departure",
-          "Entry(For Officer)": "option 2",
-          "Subject": "adding subject",
-          "BriefGeneralDiary": "adding summary"
+          "Entry": "option 3",
+          "Subject": "this is subject 30127",
+          "BriefGeneralDiary": "this is summary 30127 "
         },
         {
-          "Date_Time": "13/12/2023, 5:50",
+          "GdId": "GD80711",
+          "Date_Time": "19/12/2023, 4:16",
           "Select": "one",
           "GeneralDiaryType": "Departure",
-          "GeneralDiarySubtype": "Preventive Action",
-          "Entry(For Officer)": "option 2",
-          "Subject": "subject 2",
-          "BriefGeneralDiary": "summary 2"
+          "GeneralDiarySubtype": "Departure",
+          "Entry": "option 1",
+          "Subject": "wdwqdw",
+          "BriefGeneralDiary": "this is summary"
         },
         {
-          "Date_Time": "13/12/2023, 5:52",
+          "GdId": "GD47224",
+          "Date_Time": "18/12/2023, 5:19",
           "Select": "one",
-          "GeneralDiaryType": "----------Select----------",
-          "GeneralDiarySubtype": "----------Select----------",
-          "Entry(For Officer)": "----------Select----------",
-          "Subject": "",
+          "GeneralDiaryType": "Administrative",
+          "GeneralDiarySubtype": "Departure",
+          "Entry": "option 2",
+          "Subject": "this is subject 45",
+          "BriefGeneralDiary": "summary"
+        },
+        {
+          "GdId": "GD18530",
+          "Date_Time": "19/12/2023, 3:53",
+          "Select": "one",
+          "GeneralDiaryType": "Arrival",
+          "GeneralDiarySubtype": "Inquiry / Registration",
+          "Entry": "option 2",
+          "Subject": "testing 2",
+          "BriefGeneralDiary": "this is for testing purpose 2"
+        },
+        {
+          "GdId": "GD93380",
+          "Date_Time": "19/12/2023, 4:25",
+          "Select": "one",
+          "GeneralDiaryType": "Inquiry / Registration",
+          "GeneralDiarySubtype": "Arrival",
+          "Entry": "option 2",
+          "Subject": "subject",
           "BriefGeneralDiary": ""
+        },
+        {
+          "GdId": "GD84188",
+          "Date_Time": "20/12/2023, 11:05",
+          "Select": "one",
+          "GeneralDiaryType": "Inquiry / Registration",
+          "GeneralDiarySubtype": "Inquiry / Registration",
+          "Entry": "option 4",
+          "Subject": "inquiry",
+          "BriefGeneralDiary": "inquiry"
         }
       ],
       "id": 2
@@ -68,7 +134,7 @@
           "Select": "one",
           "GeneralDiaryType": "Departure",
           "GeneralDiarySubtype": "Inquiry / Registration",
-          "Entry(For Officer)": "option 2",
+          "Entry": "option 2",
           "Subject": "FIR",
           "BriefGeneralDiary": "Reported"
         }
@@ -93,7 +159,7 @@
           "Select": "one",
           "GeneralDiaryType": "Administrative",
           "GeneralDiarySubtype": "Departure",
-          "Entry(For Officer)": "----------Select----------",
+          "Entry": "----------Select----------",
           "Subject": "this is subject",
           "BriefGeneralDiary": "summary"
         },
@@ -102,7 +168,7 @@
           "Select": "one",
           "GeneralDiaryType": "Administrative",
           "GeneralDiarySubtype": "Departure",
-          "Entry(For Officer)": "option 3",
+          "Entry": "option 3",
           "Subject": "Traffic",
           "BriefGeneralDiary": "Sorted"
         },
@@ -111,7 +177,7 @@
           "Select": "one",
           "GeneralDiaryType": "Departure",
           "GeneralDiarySubtype": "Inquiry / Registration",
-          "Entry(For Officer)": "----------Select----------",
+          "Entry": "----------Select----------",
           "Subject": "no subject",
           "BriefGeneralDiary": "no summary"
         },
@@ -120,12 +186,44 @@
           "Select": "one",
           "GeneralDiaryType": "Departure",
           "GeneralDiarySubtype": "Inquiry / Registration",
-          "Entry(For Officer)": "option 2",
+          "Entry": "option 2",
           "Subject": "FIR",
           "BriefGeneralDiary": "Reported"
         }
       ],
       "id": 6
+    },
+    {
+      "userId": "DL850528030",
+      "entries": [
+        {
+          "GdId": "GD20240",
+          "Date_Time": "14/12/2023, 5:04",
+          "Select": "one",
+          "GeneralDiaryType": "Departure",
+          "GeneralDiarySubtype": "Administrative",
+          "Entry": "option 3",
+          "Subject": "this is subject",
+          "BriefGeneralDiary": "this is subject"
+        }
+      ],
+      "id": 7
+    },
+    {
+      "userId": "DL343172765",
+      "entries": [
+        {
+          "GdId": "GD47951",
+          "Date_Time": "18/12/2023, 11:10",
+          "Select": "one",
+          "GeneralDiaryType": "Preventive Action",
+          "GeneralDiarySubtype": "Departure",
+          "Entry": "option 4",
+          "Subject": "this is trial 1 for 18-12",
+          "BriefGeneralDiary": "trial 18-12"
+        }
+      ],
+      "id": 8
     }
   ]
 }

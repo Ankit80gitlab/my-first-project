@@ -1,0 +1,11 @@
+.forHideOption{
+    visibility: hidden;
+    display: none;
+}
+
+.spinner{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 120px;
+    margin-bottom: 120px;
+}

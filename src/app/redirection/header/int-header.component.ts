@@ -57,12 +57,6 @@ export class IntHeaderComponent {
       })
   }
 
-  value = ""
-
-  ch(data2: any) {
-    console.log(data2);
-
-  }
 
 
   notifications: any[] = [];
@@ -91,7 +85,13 @@ export class IntHeaderComponent {
     });
   }
 
-  openDialogForNotification(message: any): void {
+  removeNotification(notificationIndex: any) {
+    console.log(notificationIndex);
+    this.notifyServ.removeNotification(notificationIndex);
+    this.router.navigateByUrl('cctns/gdmain/add');
+  }
+
+  openDialogForNotification(message: any, messageIndex: any): void {
     let msgId = 0;
     const dialogRef = this.dialog.open(NotificationDialogBoxComponent, {
       data: {
@@ -100,8 +100,9 @@ export class IntHeaderComponent {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        this.removeNotification(messageIndex);
         console.log("clicked");
-        
+
       } else {
         console.log("denied");
       }

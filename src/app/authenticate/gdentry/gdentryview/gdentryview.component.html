@@ -1,6 +1,7 @@
+
 <form style="height: 100%;">
     <div>
-        
+
         <h3 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;margin-left: 20px;">Search and
             View General Diary:
             <hr />
@@ -76,37 +77,80 @@
         </button>
     </div>
 
-    <hr>
-    <h3 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;margin-left:20px;">Most Recent
-        General Diary Entries</h3>
 
-        <div style="margin: auto; width: 1300px;"> 
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">General Diary Type</th>
-                <th scope="col">General Diary Subtype</th>
-                <th scope="col">Date/Time</th>
-                <th scope="col">Entry (For Officer)</th>
-                <th scope="col">Subject</th>
-                <th scope="col">Brief General Diary</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let i of gdEntries">
-                <th scope="row">{{i.GeneralDiaryType}}</th>
-                <td>{{i.GeneralDiarySubtype}}</td>
-                <td>{{i.Date_Time}}</td>
-                <td>{{i.Subject}}</td>
-                <td>{{i.Subject}}</td>
-                <td>{{i.BriefGeneralDiary}}</td>
-                <td><mat-icon class="icn">edit</mat-icon></td>
-                <td><mat-icon class="icn">delete</mat-icon></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
 
 </form>
+
+<hr>
+
+<h3 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;margin-left:20px;">Most Recent
+    General Diary Entries</h3>
+
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="end">
+    <mat-tab label="My General Diary">
+        <div style="margin: auto; width: 1300px; padding-top: 30px;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">GD Id</th>
+                        <th scope="col">General Diary Type</th>
+                        <th scope="col">General Diary Subtype</th>
+                        <th scope="col">Date/Time</th>
+                        <th scope="col">Entry (For Officer)</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Brief General Diary</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <br>
+                <tbody>
+                    <tr *ngFor="let i of usergdEntries">
+                        <th scope="row">{{i.GdId}}</th>
+                        <td>{{i.GeneralDiaryType}}</td>
+                        <td>{{i.GeneralDiarySubtype}}</td>
+                        <td>{{i.Date_Time}}</td>
+                        <td>{{i.Entry}}</td>
+                        <td>{{i.Subject}}</td>
+                        <td>{{i.BriefGeneralDiary}}</td>
+                        <td><mat-icon class="icn" (click)="updateGd(i)">edit</mat-icon></td>
+                        <td><mat-icon class="icn">delete</mat-icon></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </mat-tab>
+    <mat-tab label="All General Diary">
+        <div style="margin: auto; width: 1300px; padding-top: 30px;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">GD Id</th>
+                        <th scope="col">General Diary Type</th>
+                        <th scope="col">General Diary Subtype</th>
+                        <th scope="col">Date/Time</th>
+                        <th scope="col">Entry (For Officer)</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Brief General Diary</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <br>
+                <tbody>
+                    <tr *ngFor="let i of gdEntries">
+                        <th scope="row">{{i.GdId}}</th>
+                        <td>{{i.GeneralDiaryType}}</td>
+                        <td>{{i.GeneralDiarySubtype}}</td>
+                        <td>{{i.Date_Time}}</td>
+                        <td>{{i.Entry}}</td>
+                        <td>{{i.Subject}}</td>
+                        <td>{{i.BriefGeneralDiary}}</td>
+                        <td><mat-icon class="icn" (click)="updateGd(i)">edit</mat-icon></td>
+                        <td><mat-icon class="icn">delete</mat-icon></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </mat-tab>
+</mat-tab-group>

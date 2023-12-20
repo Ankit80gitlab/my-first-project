@@ -18,6 +18,7 @@ import { ComplaintMainComponent } from './authenticate/complaint/complaint-main/
 import { ChatbotComponent } from './externalcomponent/chatbot/chatbot.component';
 import { TestComponent } from './authenticate/testing_component/test/test.component';
 import { NgComponentComponent } from './authenticate/ng-component/ng-component/ng-component.component';
+import { GdentryeditComponent } from './authenticate/gdentry/gdentryedit/gdentryedit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'cctns/home', pathMatch: 'full' },
@@ -28,7 +29,8 @@ const routes: Routes = [
   {
     path: 'cctns/gdmain', component: GdMainComponent, canActivateChild:[GdEntryGuard], children: [
       { path: 'add', component: GdentryaddComponent,},
-      { path: 'view', component: GdentryviewComponent,}
+      { path: 'view', component: GdentryviewComponent,},
+      { path: 'edit', component: GdentryeditComponent,},
     ]
   },
   { path:'cctns/complaint',component:ComplaintMainComponent} ,

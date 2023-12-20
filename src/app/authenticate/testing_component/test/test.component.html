@@ -2,7 +2,7 @@
 
   
     <!-- /////////////////////////////////////////////////// -->
-    <h2>Angular NgPlural</h2>
+    <h2>Angular NgPlural</h2> | {{result}}
     <div>
         <input style="width: 200px; height: 30px;" [(ngModel)]="items" placeholder="Enter a number of items" />
     </div>
@@ -41,6 +41,13 @@
         <button (click)="stopAudio()">stop</button>
     </div>
 
+
+    <button>Call function</button>
+    <br>
+    <button id="done-button" #reset>Done</button>
+    <button id="cancel-button" #reset2>Cancel</button>
+
+    
 
 
 

@@ -47,7 +47,12 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatMenuModule} from '@angular/material/menu';
 import { NotificationDialogBoxComponent } from './dialogbox/notification-dialog-box/notification-dialog-box.component';
-
+import { GdAddDialogBoxComponent } from './dialogbox/gd-add-dialog-box/gd-add-dialog-box.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { GdentryeditComponent } from './authenticate/gdentry/gdentryedit/gdentryedit.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatCardModule } from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -81,6 +86,8 @@ import { NotificationDialogBoxComponent } from './dialogbox/notification-dialog-
     ChatbotComponent,
     NgComponentComponent,
     NotificationDialogBoxComponent,
+    GdAddDialogBoxComponent,
+    GdentryeditComponent,
 
   ],
   imports: [
@@ -101,6 +108,10 @@ import { NotificationDialogBoxComponent } from './dialogbox/notification-dialog-
     MatBadgeModule,
     MatGridListModule,
     MatMenuModule,
+    MatTabsModule,
+    MatProgressBarModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
     NgIdleKeepaliveModule.forRoot(),
 
   ],

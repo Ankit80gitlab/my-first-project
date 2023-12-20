@@ -10,7 +10,7 @@
 }
 
 .chatCallIcon {
-  border: 2px solid brown;
+  border: 2px solid rgb(228, 34, 34);
   border-radius: 50%;
   --light-color: #fff;
   height: 50px;
@@ -19,6 +19,7 @@
   position: fixed;
   bottom: 50px;
   right: 10px;
+  z-index: 1;
 }
 
 .chatCallIcon:hover {

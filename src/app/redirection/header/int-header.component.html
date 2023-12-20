@@ -11,7 +11,6 @@
     </mat-grid-tile>
 
 
-
     <mat-grid-tile colspan="3" rowspan="1">
 
         <div class="container">
@@ -50,8 +49,9 @@
                         matBadgeColor="warn" [matBadgeHidden]="visible" [matMenuTriggerFor]="menu">mail</mat-icon>
                     <mat-menu #menu="matMenu" aria-hidden="true">
                         <div style="width:280px; height:150px; overflow:auto;">
-                            <table cellspacing="0" cellpadding="1" width="270">
-                                <button mat-menu-item *ngFor="let i of notifications" (click)="openDialogForNotification(i)">
+                            <table cellspacing="0" cellpadding="1" width="250px">
+                                <button mat-menu-item *ngFor="let i of notifications, index as f"
+                                    (click)="openDialogForNotification(i,f)">
                                     <mat-icon>library_add</mat-icon>
                                     <small>{{i}}</small>
                                 </button>
@@ -71,7 +71,4 @@
 
 </mat-grid-list>
 
-<!-- <h3>message from parent component : {{data}} </h3> -->
-<input type="text" #ip2 value={{value}}>
-<button (click)="ch(ip2.value)">send</button>
 <app-nav></app-nav>

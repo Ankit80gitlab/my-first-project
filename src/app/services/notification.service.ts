@@ -36,32 +36,9 @@ export class NotificationService {
     return this.httpClient.delete<any>(this.apiServer + '/user/' + id, this.httpOptions);
   }
 
-  notifications2: any[] = [];
-
-  findUserNotificationId() {
-    this.notifications2.length == 0;
-    let notifyIdOfUser = 0;
-    let userId = localStorage.getItem('userId');
-    this.getAll().subscribe((resp) => {
-      for (let i of resp) {
-        if (i.userId == userId) {
-          notifyIdOfUser = i.id;
-          break;
-        }
-      }
-      if (notifyIdOfUser != 0) {
-        this.findNotificationFromId(notifyIdOfUser);
-        return notifyIdOfUser;
-      } else { return "id is 0" }
-    });
-  }
-
-  findNotificationFromId(notifyIdOfUser: any) {
-    console.log(notifyIdOfUser);
-    return notifyIdOfUser;
-  }
 
   notifications: any[] = [];
+
   addNotification(message: any) {
     this.notifications.length == 0;
     let notifyIdOfUser = 0;
@@ -85,7 +62,7 @@ export class NotificationService {
           updatedNotifyArray.push(message);
           //console.log(updatedNotifyArray);
           //console.log(updatedNotifyArray);
-          
+
           let addNotification = {
             "userId": localStorage.getItem('userId'),
             "notification": updatedNotifyArray,
@@ -93,6 +70,51 @@ export class NotificationService {
           this.update(addNotification, notifyIdOfUser).subscribe((resp) => {
             console.log(resp);
           })
+        })
+      } else {
+        console.log("notification id is 0");
+      }
+    })
+  }
+
+  removeNotification(notificationIndex: any) {
+    this.notifications.length == 0;
+    let notifyIdOfUser = 0;
+    let updatedNotifyArray: any[] = [];
+    let userId = localStorage.getItem('userId');
+    this.getAll().subscribe((resp) => {
+      for (let i of resp) {
+        if (i.userId == userId) {
+          notifyIdOfUser = i.id;
+          break;
+        }
+      }
+      if (notifyIdOfUser != 0) {
+        //console.log(notifyIdOfUser);
+        this.getById(notifyIdOfUser).subscribe((resp) => {
+          this.notifications = resp.notification;
+          //console.log(this.notifications.length);
+          for (let k of this.notifications) {
+            updatedNotifyArray.push(k);
+          }
+          //console.log(updatedNotifyArray);
+          
+          // At index position, remove 1 items: 
+          updatedNotifyArray.splice(notificationIndex, 1);
+          //console.log(updatedNotifyArray);
+          
+          
+          //console.log(updatedNotifyArray);
+          //console.log(updatedNotifyArray);
+
+          let addNotification = {
+            "userId": localStorage.getItem('userId'),
+            "notification": updatedNotifyArray,
+          }
+          this.update(addNotification, notifyIdOfUser).subscribe((resp) => {
+            console.log(resp);
+          })
+          
 
         })
       } else {

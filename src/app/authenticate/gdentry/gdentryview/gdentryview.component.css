@@ -13,3 +13,6 @@ table tr:nth-child(even) {
 .icn:hover{
   cursor: pointer;
 }
+.mat-tab-group {
+  margin-bottom: 48px;
+}

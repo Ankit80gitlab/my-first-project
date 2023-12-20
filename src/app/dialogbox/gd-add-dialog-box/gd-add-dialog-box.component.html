@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>GENERAL DIARY ADDED</h1>
+<div mat-dialog-content style="width: 500px;">
+    <h3>GD Id : 4</h3>
+    <p style="font-weight: bold; font-size:small;">GeneralDiarySubtype : {{data.gdData[0].GeneralDiaryType}}</p>
+    <p style="font-weight: bold; font-size:small;">GeneralDiaryType : {{data.gdData[0].GeneralDiaryType}}</p>
+    <p style="font-weight: bold; font-size:small;">Subject : {{data.gdData[0].Subject}}</p>
+    <hr>
+   
+    <h5>Click OK to close</h5>
+    
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>OK</button>
+</div> 

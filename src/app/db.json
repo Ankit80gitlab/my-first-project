@@ -80,6 +80,33 @@
       "role": "user",
       "location": "delhi",
       "id": 10
+    },
+    {
+      "name": "sumit",
+      "email": "sumit@gmail.com",
+      "userid": "DL850528030",
+      "password": "Sumit@123",
+      "role": "user",
+      "location": "delhi",
+      "id": 11
+    },
+    {
+      "name": "sudesh",
+      "email": "sudesh@gmail.com",
+      "userid": "DL621217804",
+      "password": "Sudesh@123",
+      "role": "user",
+      "location": "delhi",
+      "id": 12
+    },
+    {
+      "name": "duke",
+      "email": "duke@gmail.com",
+      "userid": "DL343172765",
+      "password": "Duke@123",
+      "role": "user",
+      "location": "delhi",
+      "id": 13
     }
   ]
 }

@@ -1,0 +1,124 @@
+<div [ngSwitch]="switch">
+    <div *ngSwitchCase="'off'">
+        <mat-spinner class="spinner"></mat-spinner>
+    </div>
+
+
+    <div *ngSwitchCase="'on'">
+        <form style="height: 100%;">
+            <div>
+                <h3 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;margin-left: 20px;">
+                    Add
+                    General Diary: {{GdId}}
+
+                    <!-- <input placeholder="enter something to send to gd view component" #inp>
+            &nbsp;<button type="submit" (click)="send(inp.value)">Send</button>
+            <br><small>data will be sent to gd view component using shared services</small> -->
+                    <hr />
+
+                </h3>
+                <table style="height:100%; margin-left: 20px;">
+
+                    <tr>
+                        <td colspan="4"
+                            style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;font-size: 20px;">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';">Date/Time</td>
+                        <td colspan="3">:{{getFormattedDate()}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Select</td>
+                        <td>:One<input type="radio" value="one" #op1>&nbsp; Other<input type="radio" value="other" #op2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: Impact, Haettenschweiler, ' Narrow Bold', sans-serif; width: 25%;">
+                            General
+                            Diary
+                            Type:</td>
+                        <td style="width: 25%;">
+                            <select id="v" #gdt disabled>
+                                <option selected="selected">{{GeneralDiaryType}}</option>
+                                <option [ngClass]="{'forHideOption':GeneralDiaryType==='Arrival'}">Arrival</option>
+                                <option [ngClass]="{'forHideOption' :GeneralDiaryType==='Departure'}">Departure</option>
+                                <option [ngClass]="{'forHideOption':GeneralDiaryType==='Administrative'}">Administrative
+                                </option>
+                                <option [ngClass]="{'forHideOption':GeneralDiaryType==='Inquiry / Registration'}">
+                                    Inquiry /
+                                    Registration</option>
+                                <option [ngClass]="{'forHideOption':GeneralDiaryType==='Preventive Action'}">Preventive
+                                    Action
+                                </option>
+                            </select>
+                        </td>
+                        <td style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Brief
+                            General Diary (Summary of FIR for Morning Report etc.)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">General
+                            Diary
+                            Subtype:</td>
+                        <td><select #gds>
+                                <option selected="selected">{{GeneralDiarySubtype}}</option>
+                                <option [ngClass]="{'forHideOption':GeneralDiarySubtype==='Arrival'}">Arrival</option>
+                                <option [ngClass]="{'forHideOption':GeneralDiarySubtype==='Departure'}">Departure
+                                </option>
+                                <option [ngClass]="{'forHideOption':GeneralDiarySubtype==='Administrative'}">
+                                    Administrative
+                                </option>
+                                <option [ngClass]="{'forHideOption':GeneralDiarySubtype==='Inquiry / Registration'}">
+                                    Inquiry
+                                    /
+                                    Registration</option>
+                                <option [ngClass]="{'forHideOption':GeneralDiarySubtype==='Preventive Action'}">
+                                    Preventive
+                                    Action</option>
+                            </select>
+                        </td>
+
+                        <td rowspan="4" style="width: 50%;"><textarea style="width: 600px;height: 100px;"
+                                #summ>{{BriefGeneralDiary}}</textarea></td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Entry (For
+                            Officer)
+                        </td>
+
+                        <td><select #efo>
+                                <option selected="selected">{{Entry}}</option>
+                                <option [ngClass]="{'forHideOption':Entry==='option 1'}">option 1</option>
+                                <option [ngClass]="{'forHideOption':Entry==='option 2'}">option 2</option>
+                                <option [ngClass]="{'forHideOption':Entry==='option 3'}">option 3</option>
+                                <option [ngClass]="{'forHideOption':Entry==='option 4'}">option 4</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Subject:
+                        </td>
+                        <td><textarea style="width: 200px;height: 60px;" #sub>{{Subject}}</textarea>
+                    </tr>
+
+                </table>
+
+
+            </div>
+            <div style="text-align: center;">
+                <button class="btn btn-primary"
+                    (click)="submit(op1.value,gdt.value,gds.value,efo.value,sub.value,summ.value)">
+                    Update
+                </button>
+
+                <button type="reset" class="btn btn-primary" style="margin-left:20px;">
+                    Clear
+                </button>
+                <button type="reset" class="btn btn-primary" style="margin-left:20px;">
+                    Close
+                </button>
+            </div>
+        </form>
+    </div>
+<br>
+</div>
