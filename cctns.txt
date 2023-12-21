@@ -1,0 +1,318 @@
+     _                      _               
+    / \   _ __   __ _ _   _| | __ _ _ __    
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|
+  / ___ \| | | | (_| | |_| | | (_| | |      
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|      
+                |___/
+    
+Angular CLI: 16.1.6
+Node: 18.16.1
+Package Manager: npm 9.5.1
+OS: win32 x64
+Angular: 16.1.7
+
+---------------------------
+31-10-2023 | Tuesday
+---------------------------
+npm install bn-ng-idle
+
+applicable on all pages: session logout
+include 
+exclude
+
+configuration file in angular
+javascript
+filter | listener
+global configuration
+
+Module in Angular refers to a place where you can group the components,
+directives, pipes, and services, which are related to the application.
+
+*command to install angular idle module
+npm install --save @ng-idle/core @ng-idle/keepalive angular2-moment
+
+---------------------------
+02-11-2023 | Thursday
+---------------------------
+Implemented functionalities
+
+- reCAPTCHA
+- session timeout
+- angular routes
+- angular guards
+- dynamic header, footer and menu
+- chatbot
+--------------------------
+
+npm install jquery
+npm install bootstrap
+
+-----------------------------
+Sharing data b/w components
+-----------------------------
+
+ https://www.youtube.com/watch?v=c_fb_eSU5g4
+ https://www.youtube.com/watch?v=YEGe4iv293s
+
+ Method 1: Parent to Child via @Input decorator.
+ Method 2: Child to Parent via @Output decorator and EventEmitter.
+ Method 3: Child to Parent via @ViewChild decorator.
+ Method 4: Unrelated Components via a Service.
+ ----------------------------------------------------------------
+
+Method 1: Parent to Child via @Input decorator
+
+PARENT COMPONENT ----> @Input() decorator ----> CHILD COMPONENT	
+
+Hierarchy :
+   <parent>
+       <child></child>
+   </parent>
+
+1. import Input from @angular/core in child component
+
+2. then declare the input decorator along with a property called data with return type as string
+   it means we expect to receive a string from parent component
+
+3. in html file of child component, use ng-model as {{data}}
+
+4. in parent component, we declare the message that we want to send to child component
+
+5. in html component of parent, we bind the property "data" in the child component tag as 
+   <app-child [data]="message"></app-child>
+
+ ----------------------------------------------------------------
+
+Method 2: Child to Parent via @Output decorator and EventEmitter.
+
+CHILD COMPONENT ----> @Output decorator & EventEmitter ----> PARENT COMPONENT	
+
+Hierarchy :
+   <parent>
+       <child></child>
+   </parent>
+
+1. import Output from @angular/core in child component
+
+2. then declare the output decorator along with a property called event with class, event emitter as string
+   it means we expect to send a string from child component
+   @Output() event = new EventEmitter<string>();
+
+3. declare message variable and type message in child component which need to send.
+
+4. create a method, sendMessage() and use event.emit(this.message) to emit message.
+
+5. bind the click event woth the button and call the method, sendMessage().
+
+6. in parent component, create a method receiveMessage($event), declare a variable receivedMsg and assign with $event
+   this.receivedMsg = $event;
+
+7. in parent html component, bind the event and call the method from child component selector
+   <app-child (event)="receiveMessage($event)"></app-child>
+
+8. display the variable receivedMsg in parent html component using interpolation.
+   {{receivedMsg}}
+
+------------------------------------------------------------------------
+
+this decorator is use to catch element ref with inbuilt capabilities of DOM
+ViewChild is expected to be used to get target element from current component's view(template) which matches the selector.
+
+------------------------------------------------------------------------
+ Angular Chatbot with Dialogflow (API.ai)
+------------------------------------------------------------------------
+ command to install javascript sdk via npm
+ npm install api-ai-javascript -D
+
+ Features Module in chatbot
+ - ng g module chat
+ - ng g service chat/chat -m chat
+ - ng g component chat/chat-dialog -m chat
+
+------------------------------------------------------------------------
+ Angular material - autocomplete
+------------------------------------------------------------------------
+ npm i angular-ng-autocomplete
+
+
+------------------------------------------------------------------------
+ re captcha
+------------------------------------------------------------------------
+ - generate reCAPTCHA key from https://www.google.com/recaptcha/admin/create
+ npm i ng-recaptcha --save
+
+----------------------------------------------
+ Jenkins credential
+----------------------------------------------
+ Payload URL : http://182.76.168.232:8002/github-webhook/
+ http://localhost:8002/
+ username - admin
+ password - e355d65f3260492b83e582f4d397054c 
+ plugin - github integration
+ file:///C:/ProgramData/Jenkins/.jenkins/secrets/initialAdminPassword
+
+
+--------------------------------
+ Ngrok
+--------------------------------
+
+ ngrok dashboard : http://127.0.0.1:4040/status
+ *command to kill ngrok process
+ taskkill /f /im ngrok.exe
+
+ https://stackoverflow.com/questions/46822898/ip-address-of-localhost8080-in-webhooks-of-github-jenkins
+ https://ngrok.com/docs/getting-started/?os=windows
+
+ Add authtoken
+ $ ngrok config add-authtoken <token>
+
+ Start a tunnel
+ $ ngrok http 80
+
+ assume if port is 8080
+ ngrok http http://localhost:8080
+ ngrok http 8080 --host-header="localhost:8080"
+ ngrok http --host-header=rewrite 8080
+
+
+---------------------------------------------------
+29-11-2023
+---------------------------------------------------
+1. login dialog box should have ok button, then only it will hide
+2. seprate method for session managment in app.component.ts
+3. partial chatbot searching or replying (if query has some words matching then we have to give answer) regex
+
+
+---------------------------------------------------
+Angular core 
+---------------------------------------------------
+https://blog.angular-university.io/tag/angular-core/
+
+1. NgPlural - many applications require you to describe a variety of numbers of items	
+2. Key value pipe
+
+---------------------------------------------------
+ Angular material Implementation
+---------------------------------------------------
+
+ https://material.angular.io/components/categories
+ 
+ 1. Badge
+    Badges are small status descriptors for UI elements.A badge consists of a small circle, typically containing
+    a number or other short set of characters, that appears in proximity to another object.
+
+ 2. Angular Grid
+    mat-grid-list is a two-dimensional list view that arranges cells into grid-based layout. See Material Design spec
+
+
+------------------------------------------------------------------------------------------------------
+  User Console
+------------------------------------------------------------------------------------------------------
+
+  Change : Added user info console included -> Name | User Id | Role | Location | Profile photo
+
+  Component : app -> redirection -> header -> int-header component
+  
+  Using :
+
+  Angular Grid-list
+  mat-grid-list is a two-dimensional list view that arranges cells into grid-based layout.
+  
+  Bootstrap Flex
+  Quickly manage the layout, alignment, and sizing of grid columns, navigation, components, 
+  and more with a full suite of responsive flexbox utilities.
+
+------------------------------------------------------------------------------------------------------
+  Notification
+------------------------------------------------------------------------------------------------------
+
+  Change : Added notification functionality. user will get notified once the user will add GD or update GD.
+  Also user can remove the notification
+
+  Component : app -> redirection -> header -> int-header component
+  
+  Using :
+ 
+  notification.json
+  created JSON file to store the notifications of user.
+  json-server --watch notification.json --port 3200
+  
+  notification service
+  making http calls to get, post and update data into notification.json
+  api's - "http://localhost:3200/user";
+
+  Angular Badge
+  Badges are small status descriptors for UI elements. A badge consists of a small circle, 
+  typically containing a number or other short set of characters
+
+------------------------------------------------------------------------------------------------------
+  General Diary Add
+------------------------------------------------------------------------------------------------------
+
+  Change : User can add general diary now
+           Some feilds are required
+           Once submit, It will create a GD id and save it for user only
+
+  Component : app -> authenticate-> gdentry-> gdentryadd component
+  
+  Using :
+ 
+  gdentries.json
+  created JSON file to store the GD along with GD id of user.
+  json-server --watch gdentries.json --port 3400
+
+  gdid.json
+  created JSON file to check generated GD id does not existed already
+  json-server --watch gdid.json --port 3600
+  
+  gdedit service
+  making http calls to get, post and update data into gdentries,json and gdid.json
+  api's - "http://localhost:3400/gdentries/";
+          "http://localhost:3600/allGdId/";
+
+------------------------------------------------------------------------------------------------------
+  General Diary Edit
+------------------------------------------------------------------------------------------------------
+
+  Change : User can edit GD added by user only
+           Some feilds are not editable once GD created
+           GD id will remain same while making changes in GD
+           Once update, GD will be visible in 'My General Diary' section in view component
+
+  Component : app -> authenticate-> gdentry-> gdentryedit component
+              app -> authenticate-> gdentry-> gdentryview component
+  
+  Using :
+ 
+  gdentryedit component
+  create to edit GD. looks like GD add component. Using interpolation, fetching all the values
+  in input fields, ready to make changes.	
+ 
+  gdentries.json
+  created JSON file to store the GD along with GD id of user.
+  json-server --watch gdentries.json --port 3400
+
+  gdid.json
+  created JSON file to check generated GD id exist
+  json-server --watch gdid.json --port 3600
+  	
+  gdedit service
+  making http calls to get, post and update data into gdentries,json and gdid.json
+  api's - "http://localhost:3400/gdentries/";
+          "http://localhost:3600/allGdId/";
+
+  Angular Tabs
+  Angular Material tabs organize content into separate views where only one view can be visible at a time
+  To differentiate between user GD entries and all GD entries.
+
+------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------	
+
+  json-server --watch db.json --port 3000
+  json-server --watch notification.json --port 3200
+  json-server --watch gdentries.json --port 3400
+  json-server --watch gdid.json --port 3600
+
+
+
